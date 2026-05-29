@@ -1,0 +1,3272 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PAYCO 서초 비트빌 500m 가맹점 목록</title>
+  <style>
+    :root {
+      --bg: #f6f7fb;
+      --panel: #ffffff;
+      --text: #172033;
+      --muted: #667085;
+      --line: #e6e8ef;
+      --accent: #e52528;
+      --accent-dark: #b7191c;
+      --soft: #fff0f0;
+      --shadow: 0 10px 30px rgba(20, 29, 50, 0.08);
+      --radius: 18px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans KR", "Apple SD Gothic Neo", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+    }
+    .hero {
+      background: linear-gradient(135deg, #1f2937 0%, #3a2b2b 52%, #e52528 100%);
+      color: white;
+      padding: 42px 24px 34px;
+    }
+    .wrap {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+    .hero h1 {
+      margin: 0 0 10px;
+      font-size: clamp(26px, 4vw, 42px);
+      letter-spacing: -0.04em;
+    }
+    .hero p {
+      margin: 6px 0;
+      color: rgba(255,255,255,0.86);
+      font-size: 16px;
+    }
+    .source {
+      margin-top: 16px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.72);
+    }
+    .dashboard {
+      margin-top: -26px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+    .stat {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 20px;
+      min-height: 106px;
+    }
+    .stat .label {
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 8px;
+    }
+    .stat .value {
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+    .stat .sub {
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .section {
+      margin-top: 22px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 22px;
+    }
+    .section h2 {
+      margin: 0 0 14px;
+      font-size: 20px;
+      letter-spacing: -0.03em;
+    }
+    .toolbar {
+      display: grid;
+      grid-template-columns: 1fr auto auto;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 14px;
+    }
+    input, select {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 12px 13px;
+      font-size: 15px;
+      outline: none;
+      background: #fff;
+    }
+    input:focus, select:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(229, 37, 40, 0.12);
+    }
+    .filters {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin: 10px 0 16px;
+    }
+    .filter {
+      border: 1px solid var(--line);
+      background: #fff;
+      border-radius: 999px;
+      padding: 9px 12px;
+      font-size: 14px;
+      cursor: pointer;
+      color: var(--text);
+    }
+    .filter span {
+      color: var(--muted);
+      font-size: 12px;
+      margin-left: 3px;
+    }
+    .filter.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: white;
+    }
+    .filter.active span { color: rgba(255,255,255,0.82); }
+    .summary-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 18px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+    th {
+      text-align: left;
+      color: #475467;
+      font-size: 12px;
+      letter-spacing: -0.01em;
+      background: #f8fafc;
+      border-bottom: 1px solid var(--line);
+      padding: 12px 10px;
+      position: sticky;
+      top: 0;
+      z-index: 1;
+    }
+    td {
+      border-bottom: 1px solid var(--line);
+      padding: 13px 10px;
+      vertical-align: top;
+    }
+    tr:hover td { background: #fffafa; }
+    .table-box {
+      overflow: auto;
+      max-height: 680px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+    }
+    .rank {
+      color: var(--muted);
+      font-weight: 700;
+      width: 54px;
+    }
+    .store-name {
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+    .store-code {
+      margin-top: 2px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      white-space: nowrap;
+      border-radius: 999px;
+      background: var(--soft);
+      color: var(--accent-dark);
+      padding: 4px 9px;
+      font-weight: 700;
+      font-size: 12px;
+    }
+    .distance {
+      font-weight: 800;
+      white-space: nowrap;
+      color: #111827;
+    }
+    .address {
+      min-width: 300px;
+      color: #344054;
+    }
+    .tel { white-space: nowrap; color: #344054; }
+    .map-link {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+    .map-link:hover { text-decoration: underline; }
+    .cards { display: none; }
+    .note {
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 12px;
+    }
+    .count-line {
+      color: var(--muted);
+      font-size: 14px;
+      margin: 8px 0 0;
+    }
+    .count-line strong { color: var(--text); }
+    .footer {
+      color: var(--muted);
+      text-align: center;
+      padding: 26px 10px 36px;
+      font-size: 13px;
+    }
+
+    @media (max-width: 900px) {
+      .dashboard { grid-template-columns: repeat(2, 1fr); }
+      .summary-grid { grid-template-columns: 1fr; }
+      .toolbar { grid-template-columns: 1fr; }
+      .table-box { display: none; }
+      .cards {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+      .store-card {
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        padding: 16px;
+        background: #fff;
+      }
+      .card-top {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+      }
+      .distance-badge {
+        height: fit-content;
+        background: #111827;
+        color: white;
+        border-radius: 999px;
+        padding: 5px 10px;
+        font-weight: 800;
+      }
+      .card-meta {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        color: var(--muted);
+        margin: 10px 0;
+      }
+      .card-address {
+        margin: 0 0 8px;
+        color: #344054;
+      }
+    }
+    @media (max-width: 520px) {
+      .wrap { width: min(100% - 22px, 1180px); }
+      .hero { padding: 34px 16px 30px; }
+      .dashboard { grid-template-columns: 1fr; }
+      .section { padding: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap">
+      <h1>PAYCO 가맹점 500m 조회 결과</h1>
+      <p><strong>기준 주소</strong> · 서울특별시 서초구 서초대로74길 33 (서초동, 비트빌)</p>
+      <p><strong>조회 반경</strong> · 500m / <strong>정렬</strong> · 거리 가까운 순</p>
+      <div class="source">원본 데이터: PAYCO Biz+ 가맹점 지도 응답 데이터 기준</div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="dashboard" aria-label="요약">
+      <div class="stat">
+        <div class="label">총 가맹점</div>
+        <div class="value">97개</div>
+        <div class="sub">500m 반경 내</div>
+      </div>
+      <div class="stat">
+        <div class="label">가장 가까움</div>
+        <div class="value">12m</div>
+        <div class="sub">무아국수</div>
+      </div>
+      <div class="stat">
+        <div class="label">가장 먼 결과</div>
+        <div class="value">496m</div>
+        <div class="sub">[자판기] 현대자동차 에어랩연구소</div>
+      </div>
+      <div class="stat">
+        <div class="label">분류 수</div>
+        <div class="value">5개</div>
+        <div class="sub">식권 · 카페 · 음식점 등</div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>분류별 요약</h2>
+      <div class="summary-grid">
+        <div class="table-box" style="max-height:none">
+          <table>
+            <thead><tr><th>분류</th><th>개수</th><th>비율</th></tr></thead>
+            <tbody>
+              <tr><td>식권</td><td>42</td><td>43.3%</td></tr>
+<tr><td>카페</td><td>21</td><td>21.6%</td></tr>
+<tr><td>제과/패스트푸드/분식</td><td>19</td><td>19.6%</td></tr>
+<tr><td>음식점</td><td>14</td><td>14.4%</td></tr>
+<tr><td>기타</td><td>1</td><td>1.0%</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div>
+          <p class="note">
+            전체 97개 중 <strong>식권</strong> 분류가 가장 많습니다.
+            아래 목록에서 분류 버튼, 검색어, 최대 거리 조건을 조합해 빠르게 추릴 수 있습니다.
+          </p>
+          <div class="filters">
+            <button class="filter active" data-category="전체">전체</button><button class="filter" data-category="식권">식권 <span>42</span></button><button class="filter" data-category="카페">카페 <span>21</span></button><button class="filter" data-category="제과/패스트푸드/분식">제과/패스트푸드/분식 <span>19</span></button><button class="filter" data-category="음식점">음식점 <span>14</span></button><button class="filter" data-category="기타">기타 <span>1</span></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>전체 가맹점 목록</h2>
+      <div class="toolbar">
+        <input id="search" type="search" placeholder="가맹점명, 주소, 전화번호 검색" />
+        <select id="distanceFilter" aria-label="거리 필터">
+          <option value="500">500m 이내 전체</option>
+          <option value="100">100m 이내</option>
+          <option value="200">200m 이내</option>
+          <option value="300">300m 이내</option>
+          <option value="400">400m 이내</option>
+        </select>
+        <select id="sortSelect" aria-label="정렬">
+          <option value="distanceAsc">거리 가까운 순</option>
+          <option value="nameAsc">가맹점명 가나다순</option>
+          <option value="categoryAsc">분류 가나다순</option>
+        </select>
+      </div>
+      <div class="count-line">현재 표시: <strong id="visibleCount">97</strong>개</div>
+
+      <div class="table-box">
+        <table id="storeTable">
+          <thead>
+            <tr>
+              <th>순번</th>
+              <th>가맹점명</th>
+              <th>분류</th>
+              <th>거리</th>
+              <th>주소</th>
+              <th>전화번호</th>
+              <th>지도</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+      <tr data-name="무아국수" data-category="식권" data-distance="12" data-address="서울특별시 서초구 강남대로55길 9-15 1층 (서초동)">
+        <td class="rank">1</td>
+        <td>
+          <div class="store-name">무아국수</div>
+          <div class="store-code">4KD2KG</div>
+        </td>
+        <td><span class="pill">식권</span></td>
+        <td class="distance">12m</td>
+        <td class="address">서울특별시 서초구 강남대로55길 9-15 1층 (서초동)</td>
+        <td class="tel">02-523-3335</td>
+        <td><a class="map-link" href="https://map.naver.com/p/search/서울특별시 서초구 강남대로55길 9-15 1층 (서초동)" target="_blank" rel="noopener">지도</a></td>
+      </tr>
+    
+      <tr data-name="오늘통닭(강남역점)" data-category="식권" data-distance="21" data-address="서울특별시 서초구 서초대로74길 33 서초동, 비트빌 1층">
+        <td class="rank">2</td>
+        <td>
+          <div class="store-name">오늘통닭(강남역점)</div>
+          <div class="store-code">6JB4IF</div>
+        </td>
+        <td><span class="pill">식권</span></td>
+        <td class="distance">21m</td>
+        <td class="address">서울특별시 서초구 서초대로74길 33 서초동, 비트빌 1층</td>
+        <td class="tel">02-597-1977</td>
+        <td><a class="map-link" href="https://map.naver.com/p/search/서울특별시 서초구 서초대로74길 33 서초동, 비트빌 1층" target="_blank" rel="noopener">지도</a></td>
+      </tr>
+    
+      <tr data-name="동명태" data-category="식권" data-distance="25" data-address="서울특별시 서초구 서초대로74길 29 서초동, 서초파라곤">
+        <td class="rank">3</td>
+        <td>
+          <div class="store-name">동명태</div>
+          <div class="store-code">V35Y2S</div>
+        </td>
+        <td><span class="pill">식권</span></td>
+        <td class="distance">25m</td>
+        <td class="address">서울특별시 서초구 서초대로74길 29 서초동, 서초파라곤</td>
+        <td class="tel">02-525-3334</td>
+        <td><a class="map-link" href="https://map.naver.com/p/search/서울특별시 서초구 서초대로74길 29 서초동, 서초파라곤" target="_blank" rel="noopener">지도</a></td>
+      </tr>
+    
+      <tr data-name="본죽&amp;비빔밥cafe(강남역점)" data-category="음식점" data-distance="32" data-address="서울특별시 서초구 서초대로78길 36 강남지웰타워 201호">
+        <td class="rank">4</td>
+        <td>
+          <div class="store-name">본죽&amp;비빔밥cafe(강남역점)</div>
+          <div class="store-code">X489L7</div>
+        </td>
+        <td><span class="pill">음식점</span></td>
+        <td class="distance">32m</td>
+        <td class="address">서울특별시 서초구 서초대로78길 36 강남지웰타워 201호</td>
+        <td class="tel">02-525-6653</td>
+        <td><a class="map-link" href="https://map.naver.com/p/search/서울특별시 서초구 서초대로78길 36 강남지웰타워 201호" target="_blank" rel="noopener">지도</a></td>
+      </tr>
+    
+      <tr data-name="스타벅스(서초파라곤점)" data-category="카페" data-distance="37" data-address="서울특별시 서초구 서초동 1327-29 서초파라곤">
+        <td class="rank">5</td>
+        <td>
+          <div class="store-name">스타벅스(서초파라곤점)</div>
+          <div class="store-code">SB_9916</div>
+        </td>
+        <td><span class="pill">카페</span></td>
+        <td class="distance">37m</td>
+        <td class="address">서울특별시 서초구 서초동 1327-29 서초파라곤</td>
+        <td class="tel">1522-3232</td>
+        <td><a class="map-link" href="https://map.naver.com/p/search/서울특별시 서초구 서초동 1327-29 서초파라곤" target="_blank" rel="noopener">지도</a></td>
+      </tr>
+    
+      <tr data-name="우리동네스시신조(강남점)" data-category="식권" data-distance="39" data-address="서울특별시 서초구 서초대로78길 32 3층">
+        <td class="rank">6</td>
+        <td>
+          <div class="store-name">우리동네스시신조(강남점)</div>
+          <div class="store-code">UJC62E</div>
+        </td>
+        <td><span class="pill">식권</span></td>
+        <td class="distance">39m</td>
+        <td class="address">서울특별시 서초구 서초대로78길 32 3층</td>
+        <td class="tel">02-523-5777</td>
+        <td><a class="map-link" href="https://map.naver.com/p/search/서울특별시 서초구 서초대로78길 32 3층" target="_blank" rel="noopener">지도</a></td>
+      </tr>
+    
+      <tr data-name="김명자굴국밥" data-category="식권" data-distance="48" data-address="서울특별시 서초구 서초대로78길 30 서초동 지하1층">
+        <td class="rank">7</td>
+        <td>
+          <div class="store-name">김명자굴국밥</div>
+          <div class="store-code">S6FZMW</div>
+        </td>
+        <td><span class="pill">식권</span></td>
+        <td class="distance">48m</td>
+        <td class="address">서울특별시 서초구 서초대로78길 30 서초동 지하1층</td>
+        <td class="tel">02-597-6007</td>
+        <td><a class="map-link" href="https://map.naver.com/p/search/서울특별시 서초구 서초대로78길 30 서초동 지하1층" target="_blank" rel="noopener">지도</a></td>
+      </tr>
+    
+      <tr data-name="샐러디(강남삼성타운점)" data-category="음식점" data-distance="72" data-address="서울특별시 서초구 강남대로 359 1층 111호">
+        <td class="rank">8</td>
+        <td>
+          <div class="store-name">샐러디(강남삼성타운점)</div>
+          <div class="store-code">ARYXXC</div>
+        </td>
+        <td><span class="pill">음식점</span></td>
+        <td class="distance">72m</td>
+        <td class="address">서울특별시 서초구 강남대로 359 1층 111호</td>
+        <td class="tel">0231574297</td>
+        <td><a class="map-link" href="https://map.naver.com/p/search/서울특별시 서초구 강남대로 359 1층 111호" target="_blank" rel="noopener">지도</a></td>
+      </tr>
+    
+      <tr data-name="병천아우내장터순대(강남역점)" data-category="식권" data-distance="79" data-address="서울특별시 서초구 서초대로74길 27, 1층 서초동, 강남역 한화오벨리스크">
+        <td class="rank">9</td>
+        <td>
+          <div class="store-name">병천아우내장터순대(강남역점)</div>
+          <div class="store-code">FQBB7N</div>
+        </td>
+        <td><span class="pill">식권</span></td>
+        <td class="distance">79m</td>
+        <td class="address">서울특별시 서초구 서초대로74길 27, 1층 서초동, 강남역 한화오벨리스크</td>
+        <td class="tel">02-581-8921</td>
+        <td><a class="map-link" href="https://map.naver.com/p/search/서울특별시 서초구 서초대로74길 27, 1층 서초동, 강남역 한화오벨리스크" target="_blank" rel="noopener">지도</a></td>
+      </tr>
+    
+      <tr data-name="삼성각" data-category="식권" data-distance="85" data-address="서울특별시 서초구 서초대로78길 42 서초동, 현대기림오피텔, 2층">
+        <td class="rank">10</td>
+        <td>
+          <div class="store-name">삼성각</div>
+          <div class="store-code">1UHN8P</div>
+        </td>
+        <td><span class="pill">식권</span></td>
+        <td class="distance">85m</td>
+        <td class="address">서울특별시 서초구 서초대로78길 42 서초동, 현대기림오피텔, 2층</td>
+        <td class="tel">02-598-5553</td>
+        <td><a class="map-link" href="https://map.naver.com/p/search/서울특별시 서초구 서초대로78길 42 서초동, 현대기림오피텔, 2층" target="_blank" rel="noopener">지도</a></td>
+      </tr>
+    
+      <tr data-name="슬로우캘리(강남역삼성타운점)" data-category="음식점" data-distance="85" data-address="서울특별시 서초구 서초대로74길 23 (서초동  서초타운트라팰리스) 1층 103호">
+        <td class="rank">11</td>
+        <td>
+          <div class="store-name">슬로우캘리(강남역삼성타운점)</div>
+          <div class="store-code">XWO2YO</div>
+        </td>
+        <td><span class="pill">음식점</span></td>
+        <td class="distance">85m</td>
+        <td class="address">서울특별시 서초구 서초대로74길 23 (서초동  서초타운트라팰리스) 1층 103호</td>
+        <td class="tel">0260820022</td>
+        <td><a class="map-link" href="https://map.naver.com/p/search/서울특별시 서초구 서초대로74길 23 (서초동  서초타운트라팰리스) 1층 103호" target="_blank" rel="noopener">지도</a></td>
+      </tr>
+    
+      <tr data-name="에슬로우커피(강남역점)" data-category="카페" data-distance="85" data-address="서울특별시 서초구 서초대로74길 23 (서초동, 서초타운트라팰리스) 1층 110호">
+        <td class="rank">12</td>
+        <td>
+          <div class="store-name">에슬로우커피(강남역점)</div>
+          <div class="store-code">RYYQRB</div>
+        </td>
+        <td><span class="pill">카페</span></td>
+        <td class="distance">85m</td>
+        <td class="address">서울특별시 서초구 서초대로74길 23 (서초동, 서초타운트라팰리스) 1층 110호</td>
+        <td class="tel">02-3487-0908</td>
+        <td><a class="map-link" href="https://map.naver.com/p/search/서울특별시 서초구 서초대로74길 23 (서초동, 서초타운트라팰리스) 1층 110호" target="_blank" rel="noopener">지도</a></td>
+      </tr>
+    
+      <tr data-name="커피빈(강남대로점)" data-category="카페" data-distance="102" data-address="서울특별시 서초구 강남대로 369 1층 커피빈(강남대로점)">
+        <td class="rank">13</td>
+        <td>
+          <div class="store-name">커피빈(강남대로점)</div>
+          <div class="store-code">TSMRSH</div>
+        </td>
+        <td><span class="pill">카페</span></td>
+        <td class="distance">102m</td>
+        <td class="address">서울특별시 서초구 강남대로 369 1층 커피빈(강남대로점)</td>
+        <td class="tel">025885778</td>
+        <td><a class="map-link" href="https://map.naver.com/p/search/서울특별시 서초구 강남대로 369 1층 커피빈(강남대로점)" target="_blank" rel="noopener">지도</a></td>
+      </tr>
+    
+      <tr data-name="오한수우육면가(강남삼성타운점)" data-category="식권" data-distance="115" data-address="서울특별시 서초구 서초대로74길 23 2층 203호 (서초동, 서초타운트라팰리스)">
+        <td class="rank">14</td>
+        <td>
+          <div class="store-name">오한수우육면가(강남삼성타운점)</div>
+          <div class="store-code">5R4PTO</div>
+        </td>
+        <td><span class="pill">식권</span></td>
+        <td class="distance">115m</td>
+        <td class="address">서울특별시 서초구 서초대로74길 23 2층 203호 (서초동, 서초타운트라팰리스)</td>
+        <td class="tel">02-597-6906</td>
+        <td><a class="map-link" href="https://map.naver.com/p/search/서울특별시 서초구 서초대로74길 23 2층 203호 (서초동, 서초타운트라팰리스)" target="_blank" rel="noopener">지도</a></td>
+      </tr>
+    
+      <tr data-name="이태원천상(강남역점)" data-category="식권" data-distance="120" data-address="서울특별시 서초구 서초대로74길 23, 지하1층 서초동, 서초타운트라팰리스">
+        <td class="rank">15</td>
+        <td>
+          <div class="store-name">이태원천상(강남역점)</div>
+          <div class="store-code">V4A2YO</div>
+        </td>
+        <td><span class="pill">식권</span></td>
+        <td class="distance">120m</td>
+        <td class="address">서울특별시 서초구 서초대로74길 23, 지하1층 서초동, 서초타운트라팰리스</td>
+        <td class="tel">02-587-2520</td>
+        <td><a class="map-link" href="https://map.naver.com/p/search/서울특별시 서초구 서초대로74길 23, 지하1층 서초동, 서초타운트라팰리스" target="_blank" rel="noopener">지도</a></td>
+      </tr>
+    
+      <tr data-name="순남시래기(강남역점)" data-category="식권" data-distance="123" data-address="서울특별시 서초구 서초대로74길 23 서초동, 서초타운트라팰리스, 지하1층 B104호">
+        <td class="rank">16</td>
+        <td>
+          <div class="store-name">순남시래기(강남역점)</div>
+          <div class="store-code">SGBOO8</div>
+        </td>
+        <td><span class="pill">식권</span></td>
+        <td class="distance">123m</td>
+        <td class="address">서울특별시 서초구 서초대로74길 23 서초동, 서초타운트라팰리스, 지하1층 B104호</td>
+        <td class="tel">02-525-1544</td>
+        <td><a class="map-link" href="https://map.naver.com/p/search/서울특별시 서초구 서초대로74길 23 서초동, 서초타운트라팰리스, 지하1층 B104호" target="_blank" rel="noopener">지도</a></td>
+      </tr>
+    
+      <tr data-name="폴바셋(강남삼성타운점)" data-category="카페" data-distance="125" data-address="서울특별시 서초구 서초대로78길  22 홍우빌딩">
+        <td class="rank">17</td>
+        <td>
+          <div class="store-name">폴바셋(강남삼성타운점)</div>
+          <div class="store-code">3CI2SF</div>
+        </td>
+        <td><span class="pill">카페</span></td>
+        <td class="distance">125m</td>
+        <td class="address">서울특별시 서초구 서초대로78길  22 홍우빌딩</td>
+        <td class="tel">025235656</td>
+        <td><a class="map-link" href="https://map.naver.com/p/search/서울특별시 서초구 서초대로78길  22 홍우빌딩" target="_blank" rel="noopener">지도</a></td>
+      </tr>
+    
+      <tr data-name="던킨도너츠(강남본점점)" data-category="제과/패스트푸드/분식" data-distance="138" data-address="서울특별시 서초구 강남대로 373 (서초동, 홍우빌딩 1층)">
+        <td class="rank">18</td>
+        <td>
+          <div class="store-name">던킨도너츠(강남본점점)</div>
+          <div class="store-code">VYBI4Z</div>
+        </td>
+        <td><span class="pill">제과/패스트푸드/분식</span></td>
+        <td class="distance">138m</td>
+        <td class="address">서울특별시 서초구 강남대로 373 (서초동, 홍우빌딩 1층)</td>
+        <td class="tel">02-3475-1031</td>
+        <td><a class="map-link" href="https://map.naver.com/p/search/서울특별시 서초구 강남대로 373 (서초동, 홍우빌딩 1층)" target="_blank" rel="noopener">지도</a></td>
+      </tr>
+    
+      <tr data-name="하이라이트키친 샐러드&amp;샌드위치" data-category="음식점" data-distance="152" data-address="서울특별시 서초구 서초대로74길 49 (서초동) 지하1층 하이라이트피트니스 내">
+        <td class="rank">19</td>
+        <td>
+          <div class="store-name">하이라이트키친 샐러드&amp;샌드위치</div>
+          <div class="store-code">SELF_J15LNM</div>
+        </td>
+        <td><span class="pill">음식점</span></td>
+        <td class="distance">152m</td>
+        <td class="address">서울특별시 서초구 서초대로74길 49 (서초동) 지하1층 하이라이트피트니스 내</td>
+        <td class="tel">070-8287-2563</td>
+        <td><a class="map-link" href="https://map.naver.com/p/search/서울특별시 서초구 서초대로74길 49 (서초동) 지하1층 하이라이트피트니스 내" target="_blank" rel="noopener">지도</a></td>
+      </tr>
+    
+      <tr data-name="버거킹(강남진솔점)" data-category="제과/패스트푸드/분식" data-distance="169" data-address="서울특별시 강남구 강남대로 368">
+        <td class="rank">20</td>
+        <td>
+          <div class="store-name">버거킹(강남진솔점)</div>
+          <div class="store-code">BKR_00000088</div>
+        </td>
+        <td><span class="pill">제과/패스트푸드/분식</span></td>
+        <td class="distance">169m</td>
+        <td class="address">서울특별시 강남구 강남대로 368</td>
+        <td class="tel">02-555-0236</td>
+        <td><a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 강남대로 368" target="_blank" rel="noopener">지도</a></td>
+      </tr>
+    
+      <tr data-name="던킨(SPC스퀘어점)" data-category="제과/패스트푸드/분식" data-distance="183" data-address="서울특별시 강남구 강남대로 352, 지상2층 spc스퀘어 강남">
+        <td class="rank">21</td>
+        <td>
+          <div class="store-name">던킨(SPC스퀘어점)</div>
+          <div class="store-code">V91WSO</div>
+        </td>
+        <td><span class="pill">제과/패스트푸드/분식</span></td>
+        <td class="distance">183m</td>
+        <td class="address">서울특별시 강남구 강남대로 352, 지상2층 spc스퀘어 강남</td>
+        <td class="tel">02-508-2818</td>
+        <td><a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 강남대로 352, 지상2층 spc스퀘어 강남" target="_blank" rel="noopener">지도</a></td>
+      </tr>
+    
+      <tr data-name="스타벅스(서초우성사거리점)" data-category="카페" data-distance="185" data-address="서울특별시 서초구 서초동 1329-7 신덕빌딩">
+        <td class="rank">22</td>
+        <td>
+          <div class="store-name">스타벅스(서초우성사거리점)</div>
+          <div class="store-code">SB_3536</div>
+        </td>
+        <td><span class="pill">카페</span></td>
+        <td class="distance">185m</td>
+        <td class="address">서울특별시 서초구 서초동 1329-7 신덕빌딩</td>
+        <td class="tel">1522-3232</td>
+        <td><a class="map-link" href="https://map.naver.com/p/search/서울특별시 서초구 서초동 1329-7 신덕빌딩" target="_blank" rel="noopener">지도</a></td>
+      </tr>
+    
+      <tr data-name="쉐이크쉑(강남스퀘어점)" data-category="제과/패스트푸드/분식" data-distance="186" data-address="서울특별시 강남구 강남대로 352 1층 1층">
+        <td class="rank">23</td>
+        <td>
+          <div class="store-name">쉐이크쉑(강남스퀘어점)</div>
+          <div class="store-code">831BG1</div>
+        </td>
+        <td><span class="pill">제과/패스트푸드/분식</span></td>
+        <td class="distance">186m</td>
+        <td class="address">서울특별시 강남구 강남대로 352 1층 1층</td>
+        <td class="tel">025680380</td>
+        <td><a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 강남대로 352 1층 1층" target="_blank" rel="noopener">지도</a></td>
+      </tr>
+    
+      <tr data-name="오니기리와이규동(강남역점)" data-category="식권" data-distance="186" data-address="서울특별시 서초구 강남대로 375 서초동, 서초현대타워아파트">
+        <td class="rank">24</td>
+        <td>
+          <div class="store-name">오니기리와이규동(강남역점)</div>
+          <div class="store-code">VO7QSQ</div>
+        </td>
+        <td><span class="pill">식권</span></td>
+        <td class="distance">186m</td>
+        <td class="address">서울특별시 서초구 강남대로 375 서초동, 서초현대타워아파트</td>
+        <td class="tel">02-523-0291</td>
+        <td><a class="map-link" href="https://map.naver.com/p/search/서울특별시 서초구 강남대로 375 서초동, 서초현대타워아파트" target="_blank" rel="noopener">지도</a></td>
+      </tr>
+    
+      <tr data-name="에그드랍(강남본점)" data-category="제과/패스트푸드/분식" data-distance="222" data-address="서울특별시 서초구 강남대로55길 24 풍림아이원매직">
+        <td class="rank">25</td>
+        <td>
+          <div class="store-name">에그드랍(강남본점)</div>
+          <div class="store-code">W8D93S</div>
+        </td>
+        <td><span class="pill">제과/패스트푸드/분식</span></td>
+        <td class="distance">222m</td>
+        <td class="address">서울특별시 서초구 강남대로55길 24 풍림아이원매직</td>
+        <td class="tel">1670-4809</td>
+        <td><a class="map-link" href="https://map.naver.com/p/search/서울특별시 서초구 강남대로55길 24 풍림아이원매직" target="_blank" rel="noopener">지도</a></td>
+      </tr>
+    
+      <tr data-name="군선생" data-category="식권" data-distance="223" data-address="서울특별시 서초구 강남대로55길 24 풍림아이원매직 지하101호 (서초동)">
+        <td class="rank">26</td>
+        <td>
+          <div class="store-name">군선생</div>
+          <div class="store-code">KTNHAJ</div>
+        </td>
+        <td><span class="pill">식권</span></td>
+        <td class="distance">223m</td>
+        <td class="address">서울특별시 서초구 강남대로55길 24 풍림아이원매직 지하101호 (서초동)</td>
+        <td class="tel">070-4738-7544</td>
+        <td><a class="map-link" href="https://map.naver.com/p/search/서울특별시 서초구 강남대로55길 24 풍림아이원매직 지하101호 (서초동)" target="_blank" rel="noopener">지도</a></td>
+      </tr>
+    
+      <tr data-name="선향정샤브샤브" data-category="식권" data-distance="223" data-address="서울특별시 서초구 강남대로55길 24 서초동, 풍림아이원매직 2층 202호~203호">
+        <td class="rank">27</td>
+        <td>
+          <div class="store-name">선향정샤브샤브</div>
+          <div class="store-code">JPGIF0</div>
+        </td>
+        <td><span class="pill">식권</span></td>
+        <td class="distance">223m</td>
+        <td class="address">서울특별시 서초구 강남대로55길 24 서초동, 풍림아이원매직 2층 202호~203호</td>
+        <td class="tel">02-2055-0518</td>
+        <td><a class="map-link" href="https://map.naver.com/p/search/서울특별시 서초구 강남대로55길 24 서초동, 풍림아이원매직 2층 202호~203호" target="_blank" rel="noopener">지도</a></td>
+      </tr>
+    
+      <tr data-name="크리스피크림도넛(강남역점)" data-category="제과/패스트푸드/분식" data-distance="224" data-address="서울특별시 강남구 강남대로 376">
+        <td class="rank">28</td>
+        <td>
+          <div class="store-name">크리스피크림도넛(강남역점)</div>
+          <div class="store-code">P82YID</div>
+        </td>
+        <td><span class="pill">제과/패스트푸드/분식</span></td>
+        <td class="distance">224m</td>
+        <td class="address">서울특별시 강남구 강남대로 376</td>
+        <td class="tel">02-567-1937</td>
+        <td><a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 강남대로 376" target="_blank" rel="noopener">지도</a></td>
+      </tr>
+    
+      <tr data-name="아티제(강남역점)" data-category="카페" data-distance="225" data-address="서울특별시 강남구 강남대로 378 준빌딩 1층">
+        <td class="rank">29</td>
+        <td>
+          <div class="store-name">아티제(강남역점)</div>
+          <div class="store-code">09EFJP</div>
+        </td>
+        <td><span class="pill">카페</span></td>
+        <td class="distance">225m</td>
+        <td class="address">서울특별시 강남구 강남대로 378 준빌딩 1층</td>
+        <td class="tel">025582155</td>
+        <td><a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 강남대로 378 준빌딩 1층" target="_blank" rel="noopener">지도</a></td>
+      </tr>
+    
+      <tr data-name="아티제(삼성타운점)" data-category="카페" data-distance="225" data-address="서울특별시 서초구 서초대로74길 11 삼성전자 서초사옥 지하1층">
+        <td class="rank">30</td>
+        <td>
+          <div class="store-name">아티제(삼성타운점)</div>
+          <div class="store-code">53M97E</div>
+        </td>
+        <td><span class="pill">카페</span></td>
+        <td class="distance">225m</td>
+        <td class="address">서울특별시 서초구 서초대로74길 11 삼성전자 서초사옥 지하1층</td>
+        <td class="tel">02-598-0017</td>
+        <td><a class="map-link" href="https://map.naver.com/p/search/서울특별시 서초구 서초대로74길 11 삼성전자 서초사옥 지하1층" target="_blank" rel="noopener">지도</a></td>
+      </tr>
+    
+      <tr data-name="브릭샌드(강남역점)" data-category="식권" data-distance="226" data-address="서울특별시 강남구 강남대로 지하396 (역삼동) 지하 1층 4번">
+        <td class="rank">31</td>
+        <td>
+          <div class="store-name">브릭샌드(강남역점)</div>
+          <div class="store-code">SELF_U194M0</div>
+        </td>
+        <td><span class="pill">식권</span></td>
+        <td class="distance">226m</td>
+        <td class="address">서울특별시 강남구 강남대로 지하396 (역삼동) 지하 1층 4번</td>
+        <td class="tel">01026054974</td>
+        <td><a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 강남대로 지하396 (역삼동) 지하 1층 4번" target="_blank" rel="noopener">지도</a></td>
+      </tr>
+    
+      <tr data-name="1992 덮밥&amp;짜글이_KIOSK" data-category="식권" data-distance="227" data-address="서울특별시 강남구 강남대로84길 6 1층(역삼동)">
+        <td class="rank">32</td>
+        <td>
+          <div class="store-name">1992 덮밥&amp;짜글이_KIOSK</div>
+          <div class="store-code">IOP40O</div>
+        </td>
+        <td><span class="pill">식권</span></td>
+        <td class="distance">227m</td>
+        <td class="address">서울특별시 강남구 강남대로84길 6 1층(역삼동)</td>
+        <td class="tel">01023671465</td>
+        <td><a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 강남대로84길 6 1층(역삼동)" target="_blank" rel="noopener">지도</a></td>
+      </tr>
+    
+      <tr data-name="아티제(삼성타운2점)" data-category="카페" data-distance="228" data-address="서울특별시 서초구 서초대로74길  11 삼성전자빌딩">
+        <td class="rank">33</td>
+        <td>
+          <div class="store-name">아티제(삼성타운2점)</div>
+          <div class="store-code">CD8NRR</div>
+        </td>
+        <td><span class="pill">카페</span></td>
+        <td class="distance">228m</td>
+        <td class="address">서울특별시 서초구 서초대로74길  11 삼성전자빌딩</td>
+        <td class="tel">02-598-2155</td>
+        <td><a class="map-link" href="https://map.naver.com/p/search/서울특별시 서초구 서초대로74길  11 삼성전자빌딩" target="_blank" rel="noopener">지도</a></td>
+      </tr>
+    
+      <tr data-name="주식회사 찬란한아구직영사업본부" data-category="식권" data-distance="228" data-address="서울특별시 강남구 강남대로78길 12 2층201호(역삼동, 예미프레스티지)">
+        <td class="rank">34</td>
+        <td>
+          <div class="store-name">주식회사 찬란한아구직영사업본부</div>
+          <div class="store-code">9UJUL8</div>
+        </td>
+        <td><span class="pill">식권</span></td>
+        <td class="distance">228m</td>
+        <td class="address">서울특별시 강남구 강남대로78길 12 2층201호(역삼동, 예미프레스티지)</td>
+        <td class="tel">070-4129-2939</td>
+        <td><a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 강남대로78길 12 2층201호(역삼동, 예미프레스티지)" target="_blank" rel="noopener">지도</a></td>
+      </tr>
+    
+      <tr data-name="쿠차라(삼성서초사옥점)" data-category="음식점" data-distance="228" data-address="서울특별시 서초구 서초대로74길 11 삼성전자빌딩">
+        <td class="rank">35</td>
+        <td>
+          <div class="store-name">쿠차라(삼성서초사옥점)</div>
+          <div class="store-code">3NZUUX</div>
+        </td>
+        <td><span class="pill">음식점</span></td>
+        <td class="distance">228m</td>
+        <td class="address">서울특별시 서초구 서초대로74길 11 삼성전자빌딩</td>
+        <td class="tel">02-551-3501</td>
+        <td><a class="map-link" href="https://map.naver.com/p/search/서울특별시 서초구 서초대로74길 11 삼성전자빌딩" target="_blank" rel="noopener">지도</a></td>
+      </tr>
+    
+      <tr data-name="정상마라" data-category="식권" data-distance="231" data-address="서울특별시 서초구 사임당로 181 1층 103호">
+        <td class="rank">36</td>
+        <td>
+          <div class="store-name">정상마라</div>
+          <div class="store-code">TMYOJ2</div>
+        </td>
+        <td><span class="pill">식권</span></td>
+        <td class="distance">231m</td>
+        <td class="address">서울특별시 서초구 사임당로 181 1층 103호</td>
+        <td class="tel">02-523-2827</td>
+        <td><a class="map-link" href="https://map.naver.com/p/search/서울특별시 서초구 사임당로 181 1층 103호" target="_blank" rel="noopener">지도</a></td>
+      </tr>
+    
+      <tr data-name="이디야(역삼플래티넘점)" data-category="카페" data-distance="239" data-address="서울특별시 강남구 테헤란로4길 46 쌍용플래티넘밸류 108호">
+        <td class="rank">37</td>
+        <td>
+          <div class="store-name">이디야(역삼플래티넘점)</div>
+          <div class="store-code">SK6LMW</div>
+        </td>
+        <td><span class="pill">카페</span></td>
+        <td class="distance">239m</td>
+        <td class="address">서울특별시 강남구 테헤란로4길 46 쌍용플래티넘밸류 108호</td>
+        <td class="tel">02-2051-5698</td>
+        <td><a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 테헤란로4길 46 쌍용플래티넘밸류 108호" target="_blank" rel="noopener">지도</a></td>
+      </tr>
+    
+      <tr data-name="왓쇼이켄_QR" data-category="음식점" data-distance="244" data-address="서울특별시 강남구 테헤란로4길 46 (역삼동, 쌍용플래티넘밸류) 지하1층 B120~121호">
+        <td class="rank">38</td>
+        <td>
+          <div class="store-name">왓쇼이켄_QR</div>
+          <div class="store-code">SXSJVF</div>
+        </td>
+        <td><span class="pill">음식점</span></td>
+        <td class="distance">244m</td>
+        <td class="address">서울특별시 강남구 테헤란로4길 46 (역삼동, 쌍용플래티넘밸류) 지하1층 B120~121호</td>
+        <td class="tel">02-508-5127</td>
+        <td><a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 테헤란로4길 46 (역삼동, 쌍용플래티넘밸류) 지하1층 B120~121호" target="_blank" rel="noopener">지도</a></td>
+      </tr>
+    
+      <tr data-name="청담돈가스" data-category="식권" data-distance="244" data-address="서울특별시 강남구 테헤란로4길 46 역삼동, 쌍용플래티넘밸류, B124호">
+        <td class="rank">39</td>
+        <td>
+          <div class="store-name">청담돈가스</div>
+          <div class="store-code">CWU7BW</div>
+        </td>
+        <td><span class="pill">식권</span></td>
+        <td class="distance">244m</td>
+        <td class="address">서울특별시 강남구 테헤란로4길 46 역삼동, 쌍용플래티넘밸류, B124호</td>
+        <td class="tel">02-3443-6947</td>
+        <td><a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 테헤란로4길 46 역삼동, 쌍용플래티넘밸류, B124호" target="_blank" rel="noopener">지도</a></td>
+      </tr>
+    
+      <tr data-name="한율막국수" data-category="식권" data-distance="244" data-address="서울특별시 강남구 테헤란로4길 46 역삼동, 쌍용플래티넘밸류 B135">
+        <td class="rank">40</td>
+        <td>
+          <div class="store-name">한율막국수</div>
+          <div class="store-code">XE6L31</div>
+        </td>
+        <td><span class="pill">식권</span></td>
+        <td class="distance">244m</td>
+        <td class="address">서울특별시 강남구 테헤란로4길 46 역삼동, 쌍용플래티넘밸류 B135</td>
+        <td class="tel">02-446-6472</td>
+        <td><a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 테헤란로4길 46 역삼동, 쌍용플래티넘밸류 B135" target="_blank" rel="noopener">지도</a></td>
+      </tr>
+    
+      <tr data-name="더드림 본점" data-category="음식점" data-distance="253" data-address="서울특별시 강남구 역삼로1길 18 (역삼동) 1층">
+        <td class="rank">41</td>
+        <td>
+          <div class="store-name">더드림 본점</div>
+          <div class="store-code">SELF_IHAMLH</div>
+        </td>
+        <td><span class="pill">음식점</span></td>
+        <td class="distance">253m</td>
+        <td class="address">서울특별시 강남구 역삼로1길 18 (역삼동) 1층</td>
+        <td class="tel">025086777</td>
+        <td><a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 역삼로1길 18 (역삼동) 1층" target="_blank" rel="noopener">지도</a></td>
+      </tr>
+    
+      <tr data-name="아방궁" data-category="식권" data-distance="253" data-address="서울특별시 강남구 역삼로 1길 18, 지상2층">
+        <td class="rank">42</td>
+        <td>
+          <div class="store-name">아방궁</div>
+          <div class="store-code">Z45NL2</div>
+        </td>
+        <td><span class="pill">식권</span></td>
+        <td class="distance">253m</td>
+        <td class="address">서울특별시 강남구 역삼로 1길 18, 지상2층</td>
+        <td class="tel">02-568-0772</td>
+        <td><a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 역삼로 1길 18, 지상2층" target="_blank" rel="noopener">지도</a></td>
+      </tr>
+    
+      <tr data-name="카페마마스(강남역점)" data-category="식권" data-distance="256" data-address="서울특별시 서초구 서운로 138, 1층 서초동, 서초동아타워">
+        <td class="rank">43</td>
+        <td>
+          <div class="store-name">카페마마스(강남역점)</div>
+          <div class="store-code">YFX43X</div>
+        </td>
+        <td><span class="pill">식권</span></td>
+        <td class="distance">256m</td>
+        <td class="address">서울특별시 서초구 서운로 138, 1층 서초동, 서초동아타워</td>
+        <td class="tel">02-584-1260</td>
+        <td><a class="map-link" href="https://map.naver.com/p/search/서울특별시 서초구 서운로 138, 1층 서초동, 서초동아타워" target="_blank" rel="noopener">지도</a></td>
+      </tr>
+    
+      <tr data-name="스타벅스(강남비젼타워점)" data-category="카페" data-distance="257" data-address="서울특별시 강남구 역삼동 826-26번지 1층 101호">
+        <td class="rank">44</td>
+        <td>
+          <div class="store-name">스타벅스(강남비젼타워점)</div>
+          <div class="store-code">SB_9692</div>
+        </td>
+        <td><span class="pill">카페</span></td>
+        <td class="distance">257m</td>
+        <td class="address">서울특별시 강남구 역삼동 826-26번지 1층 101호</td>
+        <td class="tel">1522-3232</td>
+        <td><a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 역삼동 826-26번지 1층 101호" target="_blank" rel="noopener">지도</a></td>
+      </tr>
+    
+      <tr data-name="공차(서초우성점)" data-category="카페" data-distance="266" data-address="서울특별시 서초구 사임당로 174 1층 105호(서초동, 강남미래타워)">
+        <td class="rank">45</td>
+        <td>
+          <div class="store-name">공차(서초우성점)</div>
+          <div class="store-code">5ID3TF</div>
+        </td>
+        <td><span class="pill">카페</span></td>
+        <td class="distance">266m</td>
+        <td class="address">서울특별시 서초구 사임당로 174 1층 105호(서초동, 강남미래타워)</td>
+        <td class="tel">02-588-7377</td>
+        <td><a class="map-link" href="https://map.naver.com/p/search/서울특별시 서초구 사임당로 174 1층 105호(서초동, 강남미래타워)" target="_blank" rel="noopener">지도</a></td>
+      </tr>
+    
+      <tr data-name="매머드익스프레스(삼성타운점)" data-category="카페" data-distance="266" data-address="서울특별시 서초구 서운로 138, 108호(서초동, 서초동아타워)">
+        <td class="rank">46</td>
+        <td>
+          <div class="store-name">매머드익스프레스(삼성타운점)</div>
+          <div class="store-code">JQW8FC</div>
+        </td>
+        <td><span class="pill">카페</span></td>
+        <td class="distance">266m</td>
+        <td class="address">서울특별시 서초구 서운로 138, 108호(서초동, 서초동아타워)</td>
+        <td class="tel">02-515-1645</td>
+        <td><a class="map-link" href="https://map.naver.com/p/search/서울특별시 서초구 서운로 138, 108호(서초동, 서초동아타워)" target="_blank" rel="noopener">지도</a></td>
+      </tr>
+    
+      <tr data-name="탄탄면공방(강남점)" data-category="식권" data-distance="267" data-address="서울특별시 강남구 테헤란로4길 40 역삼동, 신소애빌딩">
+        <td class="rank">47</td>
+        <td>
+          <div class="store-name">탄탄면공방(강남점)</div>
+          <div class="store-code">YM4C8J</div>
+        </td>
+        <td><span class="pill">식권</span></td>
+        <td class="distance">267m</td>
+        <td class="address">서울특별시 강남구 테헤란로4길 40 역삼동, 신소애빌딩</td>
+        <td class="tel">02-563-2229</td>
+        <td><a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 테헤란로4길 40 역삼동, 신소애빌딩" target="_blank" rel="noopener">지도</a></td>
+      </tr>
+    
+      <tr data-name="헤비스테이크(강남점)" data-category="식권" data-distance="271" data-address="서울특별시 강남구 테헤란로4길 32 역삼동, 역삼동우정에쉐르1 1층 103호">
+        <td class="rank">48</td>
+        <td>
+          <div class="store-name">헤비스테이크(강남점)</div>
+          <div class="store-code">GRU4C8</div>
+        </td>
+        <td><span class="pill">식권</span></td>
+        <td class="distance">271m</td>
+        <td class="address">서울특별시 강남구 테헤란로4길 32 역삼동, 역삼동우정에쉐르1 1층 103호</td>
+        <td class="tel">02-557-3309</td>
+        <td><a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 테헤란로4길 32 역삼동, 역삼동우정에쉐르1 1층 103호" target="_blank" rel="noopener">지도</a></td>
+      </tr>
+    
+      <tr data-name="멘노아지 강남역신분당선점" data-category="식권" data-distance="275" data-address="서울특별시 강남구 테헤란로4길 38 태영빌딩 1층">
+        <td class="rank">49</td>
+        <td>
+          <div class="store-name">멘노아지 강남역신분당선점</div>
+          <div class="store-code">BMA29F</div>
+        </td>
+        <td><span class="pill">식권</span></td>
+        <td class="distance">275m</td>
+        <td class="address">서울특별시 강남구 테헤란로4길 38 태영빌딩 1층</td>
+        <td class="tel">02-2051-5599</td>
+        <td><a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 테헤란로4길 38 태영빌딩 1층" target="_blank" rel="noopener">지도</a></td>
+      </tr>
+    
+      <tr data-name="리퍼크 메리츠타워본점" data-category="카페" data-distance="276" data-address="서울특별시 강남구 강남대로 382 (역삼동) 1층">
+        <td class="rank">50</td>
+        <td>
+          <div class="store-name">리퍼크 메리츠타워본점</div>
+          <div class="store-code">SELF_PN5Z10</div>
+        </td>
+        <td><span class="pill">카페</span></td>
+        <td class="distance">276m</td>
+        <td class="address">서울특별시 강남구 강남대로 382 (역삼동) 1층</td>
+        <td class="tel">07041412010</td>
+        <td><a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 강남대로 382 (역삼동) 1층" target="_blank" rel="noopener">지도</a></td>
+      </tr>
+    
+      <tr data-name="청담동마녀김밥(강남역점)" data-category="식권" data-distance="278" data-address="서울특별시 서초구 사임당로 180 1층">
+        <td class="rank">51</td>
+        <td>
+          <div class="store-name">청담동마녀김밥(강남역점)</div>
+          <div class="store-code">9Z0I3Q</div>
+        </td>
+        <td><span class="pill">식권</span></td>
+        <td class="distance">278m</td>
+        <td class="address">서울특별시 서초구 사임당로 180 1층</td>
+        <td class="tel">02-583-1119</td>
+        <td><a class="map-link" href="https://map.naver.com/p/search/서울특별시 서초구 사임당로 180 1층" target="_blank" rel="noopener">지도</a></td>
+      </tr>
+    
+      <tr data-name="커피빈(강남역랭기지타워점)" data-category="카페" data-distance="289" data-address="서울특별시 강남구 테헤란로4길 28 826-28호 1층 커피빈(강남역랭기지타워점)">
+        <td class="rank">52</td>
+        <td>
+          <div class="store-name">커피빈(강남역랭기지타워점)</div>
+          <div class="store-code">TXA7NC</div>
+        </td>
+        <td><span class="pill">카페</span></td>
+        <td class="distance">289m</td>
+        <td class="address">서울특별시 강남구 테헤란로4길 28 826-28호 1층 커피빈(강남역랭기지타워점)</td>
+        <td class="tel">025633655</td>
+        <td><a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 테헤란로4길 28 826-28호 1층 커피빈(강남역랭기지타워점)" target="_blank" rel="noopener">지도</a></td>
+      </tr>
+    
+      <tr data-name="투썸플레이스(강남역KR타워점)" data-category="카페" data-distance="290" data-address="서울특별시 강남구 강남대로84길 13 (역삼동) KR타워 1, 2층">
+        <td class="rank">53</td>
+        <td>
+          <div class="store-name">투썸플레이스(강남역KR타워점)</div>
+          <div class="store-code">X7HT25</div>
+        </td>
+        <td><span class="pill">카페</span></td>
+        <td class="distance">290m</td>
+        <td class="address">서울특별시 강남구 강남대로84길 13 (역삼동) KR타워 1, 2층</td>
+        <td class="tel">02-555-0517</td>
+        <td><a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 강남대로84길 13 (역삼동) KR타워 1, 2층" target="_blank" rel="noopener">지도</a></td>
+      </tr>
+    
+      <tr data-name="오샐러드(강남점)" data-category="음식점" data-distance="300" data-address="서울특별시 강남구 강남대로84길 15 (역삼동) 1층 108호">
+        <td class="rank">54</td>
+        <td>
+          <div class="store-name">오샐러드(강남점)</div>
+          <div class="store-code">SELF_F28JJD</div>
+        </td>
+        <td><span class="pill">음식점</span></td>
+        <td class="distance">300m</td>
+        <td class="address">서울특별시 강남구 강남대로84길 15 (역삼동) 1층 108호</td>
+        <td class="tel">0220395453</td>
+        <td><a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 강남대로84길 15 (역삼동) 1층 108호" target="_blank" rel="noopener">지도</a></td>
+      </tr>
+    
+      <tr data-name="코리안치킨클럽" data-category="식권" data-distance="302" data-address="서울특별시 강남구 강남대로78길 22 1층, 2층(역삼동)">
+        <td class="rank">55</td>
+        <td>
+          <div class="store-name">코리안치킨클럽</div>
+          <div class="store-code">3MS94I</div>
+        </td>
+        <td><span class="pill">식권</span></td>
+        <td class="distance">302m</td>
+        <td class="address">서울특별시 강남구 강남대로78길 22 1층, 2층(역삼동)</td>
+        <td class="tel">02-596-0001</td>
+        <td><a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 강남대로78길 22 1층, 2층(역삼동)" target="_blank" rel="noopener">지도</a></td>
+      </tr>
+    
+      <tr data-name="에그드랍(강남역점)" data-category="제과/패스트푸드/분식" data-distance="304" data-address="서울특별시 강남구 강남대로78길 22">
+        <td class="rank">56</td>
+        <td>
+          <div class="store-name">에그드랍(강남역점)</div>
+          <div class="store-code">4UYU38</div>
+        </td>
+        <td><span class="pill">제과/패스트푸드/분식</span></td>
+        <td class="distance">304m</td>
+        <td class="address">서울특별시 강남구 강남대로78길 22</td>
+        <td class="tel">1670-4809</td>
+        <td><a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 강남대로78길 22" target="_blank" rel="noopener">지도</a></td>
+      </tr>
+    
+      <tr data-name="경양식당임정훈" data-category="음식점" data-distance="312" data-address="서울특별시 강남구 강남대로84길 15 (역삼동) 1층">
+        <td class="rank">57</td>
+        <td>
+          <div class="store-name">경양식당임정훈</div>
+          <div class="store-code">GYD1AZ</div>
+        </td>
+        <td><span class="pill">음식점</span></td>
+        <td class="distance">312m</td>
+        <td class="address">서울특별시 강남구 강남대로84길 15 (역삼동) 1층</td>
+        <td class="tel">021234567</td>
+        <td><a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 강남대로84길 15 (역삼동) 1층" target="_blank" rel="noopener">지도</a></td>
+      </tr>
+    
+      <tr data-name="장칼&amp;짜글이_QR" data-category="음식점" data-distance="312" data-address="서울특별시 강남구 강남대로84길 15 (역삼동) 지하1층 B123호">
+        <td class="rank">58</td>
+        <td>
+          <div class="store-name">장칼&amp;짜글이_QR</div>
+          <div class="store-code">FO432J</div>
+        </td>
+        <td><span class="pill">음식점</span></td>
+        <td class="distance">312m</td>
+        <td class="address">서울특별시 강남구 강남대로84길 15 (역삼동) 지하1층 B123호</td>
+        <td class="tel">02-553-3337</td>
+        <td><a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 강남대로84길 15 (역삼동) 지하1층 B123호" target="_blank" rel="noopener">지도</a></td>
+      </tr>
+    
+      <tr data-name="오므토토마토(강남본점)" data-category="식권" data-distance="315" data-address="서울특별시 강남구 테헤란로4길 29 오므토토마토(강남본점)">
+        <td class="rank">59</td>
+        <td>
+          <div class="store-name">오므토토마토(강남본점)</div>
+          <div class="store-code">R2NLTH</div>
+        </td>
+        <td><span class="pill">식권</span></td>
+        <td class="distance">315m</td>
+        <td class="address">서울특별시 강남구 테헤란로4길 29 오므토토마토(강남본점)</td>
+        <td class="tel">02-3452-8430</td>
+        <td><a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 테헤란로4길 29 오므토토마토(강남본점)" target="_blank" rel="noopener">지도</a></td>
+      </tr>
+    
+      <tr data-name="힘난다떡볶이(본점)" data-category="식권" data-distance="315" data-address="서울특별시 강남구 강남대로84길 15, 지상1층 102-1호">
+        <td class="rank">60</td>
+        <td>
+          <div class="store-name">힘난다떡볶이(본점)</div>
+          <div class="store-code">6E56C1</div>
+        </td>
+        <td><span class="pill">식권</span></td>
+        <td class="distance">315m</td>
+        <td class="address">서울특별시 강남구 강남대로84길 15, 지상1층 102-1호</td>
+        <td class="tel">02-567-6768</td>
+        <td><a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 강남대로84길 15, 지상1층 102-1호" target="_blank" rel="noopener">지도</a></td>
+      </tr>
+    
+      <tr data-name="담소소사골순대육개장(강남본점)" data-category="식권" data-distance="317" data-address="서울특별시 강남구 강남대로78길 24 역삼동 1층">
+        <td class="rank">61</td>
+        <td>
+          <div class="store-name">담소소사골순대육개장(강남본점)</div>
+          <div class="store-code">T4HRNQ</div>
+        </td>
+        <td><span class="pill">식권</span></td>
+        <td class="distance">317m</td>
+        <td class="address">서울특별시 강남구 강남대로78길 24 역삼동 1층</td>
+        <td class="tel">02-563-1821</td>
+        <td><a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 강남대로78길 24 역삼동 1층" target="_blank" rel="noopener">지도</a></td>
+      </tr>
+    
+      <tr data-name="다모아한식_QR" data-category="음식점" data-distance="323" data-address="서울특별시 서초구 사임당로 158 (서초동) 지하1층 B135~136">
+        <td class="rank">62</td>
+        <td>
+          <div class="store-name">다모아한식_QR</div>
+          <div class="store-code">4PFX35</div>
+        </td>
+        <td><span class="pill">음식점</span></td>
+        <td class="distance">323m</td>
+        <td class="address">서울특별시 서초구 사임당로 158 (서초동) 지하1층 B135~136</td>
+        <td class="tel">02-587-0918</td>
+        <td><a class="map-link" href="https://map.naver.com/p/search/서울특별시 서초구 사임당로 158 (서초동) 지하1층 B135~136" target="_blank" rel="noopener">지도</a></td>
+      </tr>
+    
+      <tr data-name="반장즉석떡볶이(강남점)" data-category="식권" data-distance="326" data-address="서울특별시 강남구 테헤란로4길 25, 지하1층 역삼동">
+        <td class="rank">63</td>
+        <td>
+          <div class="store-name">반장즉석떡볶이(강남점)</div>
+          <div class="store-code">ESQGV5</div>
+        </td>
+        <td><span class="pill">식권</span></td>
+        <td class="distance">326m</td>
+        <td class="address">서울특별시 강남구 테헤란로4길 25, 지하1층 역삼동</td>
+        <td class="tel">02-554-1991</td>
+        <td><a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 테헤란로4길 25, 지하1층 역삼동" target="_blank" rel="noopener">지도</a></td>
+      </tr>
+    
+      <tr data-name="두배고기" data-category="식권" data-distance="345" data-address="서울특별시 강남구 테헤란로6길 42 역삼동">
+        <td class="rank">64</td>
+        <td>
+          <div class="store-name">두배고기</div>
+          <div class="store-code">E8ITI8</div>
+        </td>
+        <td><span class="pill">식권</span></td>
+        <td class="distance">345m</td>
+        <td class="address">서울특별시 강남구 테헤란로6길 42 역삼동</td>
+        <td class="tel">0507-1442-0707</td>
+        <td><a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 테헤란로6길 42 역삼동" target="_blank" rel="noopener">지도</a></td>
+      </tr>
+    
+      <tr data-name="뉴욕김치찌개" data-category="식권" data-distance="349" data-address="서울특별시 강남구 테헤란로4길 6 역삼동, 강남역 센트럴 푸르지오 시티, 지하2층 B206호">
+        <td class="rank">65</td>
+        <td>
+          <div class="store-name">뉴욕김치찌개</div>
+          <div class="store-code">LXN2GZ</div>
+        </td>
+        <td><span class="pill">식권</span></td>
+        <td class="distance">349m</td>
+        <td class="address">서울특별시 강남구 테헤란로4길 6 역삼동, 강남역 센트럴 푸르지오 시티, 지하2층 B206호</td>
+        <td class="tel">010-4447-5001</td>
+        <td><a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 테헤란로4길 6 역삼동, 강남역 센트럴 푸르지오 시티, 지하2층 B206호" target="_blank" rel="noopener">지도</a></td>
+      </tr>
+    
+      <tr data-name="(주)우동명가기리야마본진" data-category="식권" data-distance="350" data-address="서울특별시 강남구 강남대로84길 23 역삼동, 한라클래식오피스텔 (B102~107호)">
+        <td class="rank">66</td>
+        <td>
+          <div class="store-name">(주)우동명가기리야마본진</div>
+          <div class="store-code">HCSA4B</div>
+        </td>
+        <td><span class="pill">식권</span></td>
+        <td class="distance">350m</td>
+        <td class="address">서울특별시 강남구 강남대로84길 23 역삼동, 한라클래식오피스텔 (B102~107호)</td>
+        <td class="tel">02-567-0068</td>
+        <td><a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 강남대로84길 23 역삼동, 한라클래식오피스텔 (B102~107호)" target="_blank" rel="noopener">지도</a></td>
+      </tr>
+    
+      <tr data-name="스타벅스(강남R점)" data-category="카페" data-distance="353" data-address="서울특별시 강남구 역삼동 825 미진프라자 1층 101호">
+        <td class="rank">67</td>
+        <td>
+          <div class="store-name">스타벅스(강남R점)</div>
+          <div class="store-code">SB_3478</div>
+        </td>
+        <td><span class="pill">카페</span></td>
+        <td class="distance">353m</td>
+        <td class="address">서울특별시 강남구 역삼동 825 미진프라자 1층 101호</td>
+        <td class="tel">1522-3232</td>
+        <td><a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 역삼동 825 미진프라자 1층 101호" target="_blank" rel="noopener">지도</a></td>
+      </tr>
+    
+      <tr data-name="돌깨마을맷돌순두부(강남역점)" data-category="식권" data-distance="361" data-address="서울특별시 강남구 테헤란로4길 6 역삼동, 강남역 센트럴 푸르지오 시티 B227호,B228호">
+        <td class="rank">68</td>
+        <td>
+          <div class="store-name">돌깨마을맷돌순두부(강남역점)</div>
+          <div class="store-code">ZZ39SM</div>
+        </td>
+        <td><span class="pill">식권</span></td>
+        <td class="distance">361m</td>
+        <td class="address">서울특별시 강남구 테헤란로4길 6 역삼동, 강남역 센트럴 푸르지오 시티 B227호,B228호</td>
+        <td class="tel">02-558-3356</td>
+        <td><a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 테헤란로4길 6 역삼동, 강남역 센트럴 푸르지오 시티 B227호,B228호" target="_blank" rel="noopener">지도</a></td>
+      </tr>
+    
+      <tr data-name="싸다김밥(강남역점)" data-category="제과/패스트푸드/분식" data-distance="361" data-address="서울특별시 강남구 테헤란로4길 6 (역삼동) 지상1층 120호">
+        <td class="rank">69</td>
+        <td>
+          <div class="store-name">싸다김밥(강남역점)</div>
+          <div class="store-code">T8F5D1</div>
+        </td>
+        <td><span class="pill">제과/패스트푸드/분식</span></td>
+        <td class="distance">361m</td>
+        <td class="address">서울특별시 강남구 테헤란로4길 6 (역삼동) 지상1층 120호</td>
+        <td class="tel">02-553-1503</td>
+        <td><a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 테헤란로4길 6 (역삼동) 지상1층 120호" target="_blank" rel="noopener">지도</a></td>
+      </tr>
+    
+      <tr data-name="오트보트 주식회사" data-category="음식점" data-distance="361" data-address="서울특별시 강남구 테헤란로4길 6 (역삼동) 제지1층 B119호">
+        <td class="rank">70</td>
+        <td>
+          <div class="store-name">오트보트 주식회사</div>
+          <div class="store-code">DQ048A</div>
+        </td>
+        <td><span class="pill">음식점</span></td>
+        <td class="distance">361m</td>
+        <td class="address">서울특별시 강남구 테헤란로4길 6 (역삼동) 제지1층 B119호</td>
+        <td class="tel">010-3321-0242</td>
+        <td><a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 테헤란로4길 6 (역삼동) 제지1층 B119호" target="_blank" rel="noopener">지도</a></td>
+      </tr>
+    
+      <tr data-name="야기카레" data-category="식권" data-distance="362" data-address="서울특별시 강남구 테헤란로4길 6 역삼동, 강남역 센트럴 푸르지오 시티 지하2층 b207호">
+        <td class="rank">71</td>
+        <td>
+          <div class="store-name">야기카레</div>
+          <div class="store-code">KME21X</div>
+        </td>
+        <td><span class="pill">식권</span></td>
+        <td class="distance">362m</td>
+        <td class="address">서울특별시 강남구 테헤란로4길 6 역삼동, 강남역 센트럴 푸르지오 시티 지하2층 b207호</td>
+        <td class="tel">02-565-2446</td>
+        <td><a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 테헤란로4길 6 역삼동, 강남역 센트럴 푸르지오 시티 지하2층 b207호" target="_blank" rel="noopener">지도</a></td>
+      </tr>
+    
+      <tr data-name="153구포국수(강남역점)" data-category="음식점" data-distance="363" data-address="서울특별시 강남구 테헤란로4길 6 (역삼동) B102,B103,B104호">
+        <td class="rank">72</td>
+        <td>
+          <div class="store-name">153구포국수(강남역점)</div>
+          <div class="store-code">0BTGCE</div>
+        </td>
+        <td><span class="pill">음식점</span></td>
+        <td class="distance">363m</td>
+        <td class="address">서울특별시 강남구 테헤란로4길 6 (역삼동) B102,B103,B104호</td>
+        <td class="tel">02-556-6677</td>
+        <td><a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 테헤란로4길 6 (역삼동) B102,B103,B104호" target="_blank" rel="noopener">지도</a></td>
+      </tr>
+    
+      <tr data-name="스타벅스(강남우성점)" data-category="카페" data-distance="365" data-address="서울특별시 강남구 역삼동 832-3 강남역 쉐르빌">
+        <td class="rank">73</td>
+        <td>
+          <div class="store-name">스타벅스(강남우성점)</div>
+          <div class="store-code">SB_3346</div>
+        </td>
+        <td><span class="pill">카페</span></td>
+        <td class="distance">365m</td>
+        <td class="address">서울특별시 강남구 역삼동 832-3 강남역 쉐르빌</td>
+        <td class="tel">1522-3232</td>
+        <td><a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 역삼동 832-3 강남역 쉐르빌" target="_blank" rel="noopener">지도</a></td>
+      </tr>
+    
+      <tr data-name="파리바게뜨(신분당선강남역점)" data-category="제과/패스트푸드/분식" data-distance="365" data-address="서울특별시 강남구 강남대로 396 강남역">
+        <td class="rank">74</td>
+        <td>
+          <div class="store-name">파리바게뜨(신분당선강남역점)</div>
+          <div class="store-code">PARIS_22593</div>
+        </td>
+        <td><span class="pill">제과/패스트푸드/분식</span></td>
+        <td class="distance">365m</td>
+        <td class="address">서울특별시 강남구 강남대로 396 강남역</td>
+        <td class="tel">02-565-5266</td>
+        <td><a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 강남대로 396 강남역" target="_blank" rel="noopener">지도</a></td>
+      </tr>
+    
+      <tr data-name="써브웨이(강남GT타워점)" data-category="제과/패스트푸드/분식" data-distance="373" data-address="서울특별시 서초구 서초대로 411 (서초동) 동관 1층 1호,2호,3호">
+        <td class="rank">75</td>
+        <td>
+          <div class="store-name">써브웨이(강남GT타워점)</div>
+          <div class="store-code">353C7L</div>
+        </td>
+        <td><span class="pill">제과/패스트푸드/분식</span></td>
+        <td class="distance">373m</td>
+        <td class="address">서울특별시 서초구 서초대로 411 (서초동) 동관 1층 1호,2호,3호</td>
+        <td class="tel">02-3478-1014</td>
+        <td><a class="map-link" href="https://map.naver.com/p/search/서울특별시 서초구 서초대로 411 (서초동) 동관 1층 1호,2호,3호" target="_blank" rel="noopener">지도</a></td>
+      </tr>
+    
+      <tr data-name="소노야(강남역점)" data-category="식권" data-distance="383" data-address="서울특별시 강남구 강남대로 396, 강남역 지하1층28호(역삼동)">
+        <td class="rank">76</td>
+        <td>
+          <div class="store-name">소노야(강남역점)</div>
+          <div class="store-code">EJDGJZ</div>
+        </td>
+        <td><span class="pill">식권</span></td>
+        <td class="distance">383m</td>
+        <td class="address">서울특별시 강남구 강남대로 396, 강남역 지하1층28호(역삼동)</td>
+        <td class="tel">02-568-0014</td>
+        <td><a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 강남대로 396, 강남역 지하1층28호(역삼동)" target="_blank" rel="noopener">지도</a></td>
+      </tr>
+    
+      <tr data-name="컴포즈커피(강남역사점)" data-category="카페" data-distance="383" data-address="서울특별시 강남구 테헤란로 101 컴포즈커피(강남역사점)">
+        <td class="rank">77</td>
+        <td>
+          <div class="store-name">컴포즈커피(강남역사점)</div>
+          <div class="store-code">JJT6VF</div>
+        </td>
+        <td><span class="pill">카페</span></td>
+        <td class="distance">383m</td>
+        <td class="address">서울특별시 강남구 테헤란로 101 컴포즈커피(강남역사점)</td>
+        <td class="tel">1899-5685</td>
+        <td><a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 테헤란로 101 컴포즈커피(강남역사점)" target="_blank" rel="noopener">지도</a></td>
+      </tr>
+    
+      <tr data-name="크리스피크림도넛(강남역 지하쇼핑센터점)" data-category="제과/패스트푸드/분식" data-distance="383" data-address="서울특별시 강남구 강남대로 지하 396">
+        <td class="rank">78</td>
+        <td>
+          <div class="store-name">크리스피크림도넛(강남역 지하쇼핑센터점)</div>
+          <div class="store-code">1L3X9P</div>
+        </td>
+        <td><span class="pill">제과/패스트푸드/분식</span></td>
+        <td class="distance">383m</td>
+        <td class="address">서울특별시 강남구 강남대로 지하 396</td>
+        <td class="tel">02-567-9718</td>
+        <td><a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 강남대로 지하 396" target="_blank" rel="noopener">지도</a></td>
+      </tr>
+    
+      <tr data-name="맘스터치(강남대성학원점)" data-category="제과/패스트푸드/분식" data-distance="384" data-address="서울특별시 강남구 강남대로78길 33 (역삼동) 맘스터치(강남대성학원점)">
+        <td class="rank">79</td>
+        <td>
+          <div class="store-name">맘스터치(강남대성학원점)</div>
+          <div class="store-code">1VH559</div>
+        </td>
+        <td><span class="pill">제과/패스트푸드/분식</span></td>
+        <td class="distance">384m</td>
+        <td class="address">서울특별시 강남구 강남대로78길 33 (역삼동) 맘스터치(강남대성학원점)</td>
+        <td class="tel">025661318</td>
+        <td><a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 강남대로78길 33 (역삼동) 맘스터치(강남대성학원점)" target="_blank" rel="noopener">지도</a></td>
+      </tr>
+    
+      <tr data-name="토담골맛집" data-category="음식점" data-distance="387" data-address="서울특별시 강남구 테헤란로4길 13 (역삼동) 1층">
+        <td class="rank">80</td>
+        <td>
+          <div class="store-name">토담골맛집</div>
+          <div class="store-code">97WRPB</div>
+        </td>
+        <td><span class="pill">음식점</span></td>
+        <td class="distance">387m</td>
+        <td class="address">서울특별시 강남구 테헤란로4길 13 (역삼동) 1층</td>
+        <td class="tel">02-552-3360</td>
+        <td><a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 테헤란로4길 13 (역삼동) 1층" target="_blank" rel="noopener">지도</a></td>
+      </tr>
+    
+      <tr data-name="스타벅스(몬테소리점)" data-category="카페" data-distance="405" data-address="서울특별시 서초구 서초동 1318-8">
+        <td class="rank">81</td>
+        <td>
+          <div class="store-name">스타벅스(몬테소리점)</div>
+          <div class="store-code">SB_9425</div>
+        </td>
+        <td><span class="pill">카페</span></td>
+        <td class="distance">405m</td>
+        <td class="address">서울특별시 서초구 서초동 1318-8</td>
+        <td class="tel">1522-3232</td>
+        <td><a class="map-link" href="https://map.naver.com/p/search/서울특별시 서초구 서초동 1318-8" target="_blank" rel="noopener">지도</a></td>
+      </tr>
+    
+      <tr data-name="에그드랍(강남우성점)" data-category="제과/패스트푸드/분식" data-distance="407" data-address="서울특별시 서초구 강남대로 321 1층 104호 (서초동)">
+        <td class="rank">82</td>
+        <td>
+          <div class="store-name">에그드랍(강남우성점)</div>
+          <div class="store-code">0MYIKC</div>
+        </td>
+        <td><span class="pill">제과/패스트푸드/분식</span></td>
+        <td class="distance">407m</td>
+        <td class="address">서울특별시 서초구 강남대로 321 1층 104호 (서초동)</td>
+        <td class="tel">1670-4809</td>
+        <td><a class="map-link" href="https://map.naver.com/p/search/서울특별시 서초구 강남대로 321 1층 104호 (서초동)" target="_blank" rel="noopener">지도</a></td>
+      </tr>
+    
+      <tr data-name="연희동칼국수(강남역점)" data-category="식권" data-distance="410" data-address="서울특별시 서초구 서초대로 411 서초동, GT TOWER, B1-3호">
+        <td class="rank">83</td>
+        <td>
+          <div class="store-name">연희동칼국수(강남역점)</div>
+          <div class="store-code">SKWXJ5</div>
+        </td>
+        <td><span class="pill">식권</span></td>
+        <td class="distance">410m</td>
+        <td class="address">서울특별시 서초구 서초대로 411 서초동, GT TOWER, B1-3호</td>
+        <td class="tel">02-590-2455</td>
+        <td><a class="map-link" href="https://map.naver.com/p/search/서울특별시 서초구 서초대로 411 서초동, GT TOWER, B1-3호" target="_blank" rel="noopener">지도</a></td>
+      </tr>
+    
+      <tr data-name="나주가" data-category="식권" data-distance="421" data-address="서울특별시 강남구 강남대로84길 36 역삼동">
+        <td class="rank">84</td>
+        <td>
+          <div class="store-name">나주가</div>
+          <div class="store-code">3HLP3T</div>
+        </td>
+        <td><span class="pill">식권</span></td>
+        <td class="distance">421m</td>
+        <td class="address">서울특별시 강남구 강남대로84길 36 역삼동</td>
+        <td class="tel">02-567-9288</td>
+        <td><a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 강남대로84길 36 역삼동" target="_blank" rel="noopener">지도</a></td>
+      </tr>
+    
+      <tr data-name="공차(강남역점)" data-category="카페" data-distance="435" data-address="서울특별시 강남구 역삼동 821">
+        <td class="rank">85</td>
+        <td>
+          <div class="store-name">공차(강남역점)</div>
+          <div class="store-code">HH6Y2N</div>
+        </td>
+        <td><span class="pill">카페</span></td>
+        <td class="distance">435m</td>
+        <td class="address">서울특별시 강남구 역삼동 821</td>
+        <td class="tel">02-569-7344</td>
+        <td><a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 역삼동 821" target="_blank" rel="noopener">지도</a></td>
+      </tr>
+    
+      <tr data-name="국밥쟁이(강남역점)" data-category="식권" data-distance="439" data-address="서울특별시 서초구 서초대로77길 9 서초동, 강남 누드죤빌딩 지하1층">
+        <td class="rank">86</td>
+        <td>
+          <div class="store-name">국밥쟁이(강남역점)</div>
+          <div class="store-code">C8WT3X</div>
+        </td>
+        <td><span class="pill">식권</span></td>
+        <td class="distance">439m</td>
+        <td class="address">서울특별시 서초구 서초대로77길 9 서초동, 강남 누드죤빌딩 지하1층</td>
+        <td class="tel">02-533-9290</td>
+        <td><a class="map-link" href="https://map.naver.com/p/search/서울특별시 서초구 서초대로77길 9 서초동, 강남 누드죤빌딩 지하1층" target="_blank" rel="noopener">지도</a></td>
+      </tr>
+    
+      <tr data-name="맥도날드(강남2호점)" data-category="제과/패스트푸드/분식" data-distance="451" data-address="서울특별시 강남구 테헤란로 107 (역삼동) 맥도날드(강남2호)">
+        <td class="rank">87</td>
+        <td>
+          <div class="store-name">맥도날드(강남2호점)</div>
+          <div class="store-code">B62YVV</div>
+        </td>
+        <td><span class="pill">제과/패스트푸드/분식</span></td>
+        <td class="distance">451m</td>
+        <td class="address">서울특별시 강남구 테헤란로 107 (역삼동) 맥도날드(강남2호)</td>
+        <td class="tel">02-6205-6400</td>
+        <td><a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 테헤란로 107 (역삼동) 맥도날드(강남2호)" target="_blank" rel="noopener">지도</a></td>
+      </tr>
+    
+      <tr data-name="낙원타코(강남역점)" data-category="식권" data-distance="456" data-address="서울특별시 서초구 서초대로73길 9 2층 (서초동, 타임빌딩)">
+        <td class="rank">88</td>
+        <td>
+          <div class="store-name">낙원타코(강남역점)</div>
+          <div class="store-code">XKGHR0</div>
+        </td>
+        <td><span class="pill">식권</span></td>
+        <td class="distance">456m</td>
+        <td class="address">서울특별시 서초구 서초대로73길 9 2층 (서초동, 타임빌딩)</td>
+        <td class="tel">0222941540</td>
+        <td><a class="map-link" href="https://map.naver.com/p/search/서울특별시 서초구 서초대로73길 9 2층 (서초동, 타임빌딩)" target="_blank" rel="noopener">지도</a></td>
+      </tr>
+    
+      <tr data-name="버거킹(강남대로점)" data-category="제과/패스트푸드/분식" data-distance="466" data-address="서울특별시 강남구 강남대로 406">
+        <td class="rank">89</td>
+        <td>
+          <div class="store-name">버거킹(강남대로점)</div>
+          <div class="store-code">BKR_00000187</div>
+        </td>
+        <td><span class="pill">제과/패스트푸드/분식</span></td>
+        <td class="distance">466m</td>
+        <td class="address">서울특별시 강남구 강남대로 406</td>
+        <td class="tel">02-566-0332</td>
+        <td><a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 강남대로 406" target="_blank" rel="noopener">지도</a></td>
+      </tr>
+    
+      <tr data-name="공차(강남글라스점)" data-category="카페" data-distance="471" data-address="서울특별시 강남구 강남대로 406 GLASS TOWER">
+        <td class="rank">90</td>
+        <td>
+          <div class="store-name">공차(강남글라스점)</div>
+          <div class="store-code">4APZAY</div>
+        </td>
+        <td><span class="pill">카페</span></td>
+        <td class="distance">471m</td>
+        <td class="address">서울특별시 강남구 강남대로 406 GLASS TOWER</td>
+        <td class="tel">02-3453-7758</td>
+        <td><a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 강남대로 406 GLASS TOWER" target="_blank" rel="noopener">지도</a></td>
+      </tr>
+    
+      <tr data-name="써브웨이(강남우성점)" data-category="제과/패스트푸드/분식" data-distance="472" data-address="서울특별시 강남구 강남대로66길 6">
+        <td class="rank">91</td>
+        <td>
+          <div class="store-name">써브웨이(강남우성점)</div>
+          <div class="store-code">1O7ASZ</div>
+        </td>
+        <td><span class="pill">제과/패스트푸드/분식</span></td>
+        <td class="distance">472m</td>
+        <td class="address">서울특별시 강남구 강남대로66길 6</td>
+        <td class="tel">02-553-5232</td>
+        <td><a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 강남대로66길 6" target="_blank" rel="noopener">지도</a></td>
+      </tr>
+    
+      <tr data-name="포몬스(역삼점)" data-category="식권" data-distance="485" data-address="서울특별시 강남구 역삼로7길 8 역삼동, 1층">
+        <td class="rank">92</td>
+        <td>
+          <div class="store-name">포몬스(역삼점)</div>
+          <div class="store-code">1XKB2L</div>
+        </td>
+        <td><span class="pill">식권</span></td>
+        <td class="distance">485m</td>
+        <td class="address">서울특별시 강남구 역삼로7길 8 역삼동, 1층</td>
+        <td class="tel">02-3453-6070</td>
+        <td><a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 역삼로7길 8 역삼동, 1층" target="_blank" rel="noopener">지도</a></td>
+      </tr>
+    
+      <tr data-name="롯데리아(역삼점)" data-category="제과/패스트푸드/분식" data-distance="486" data-address="서울특별시 강남구 테헤란로 116 동경빌딩">
+        <td class="rank">93</td>
+        <td>
+          <div class="store-name">롯데리아(역삼점)</div>
+          <div class="store-code">WSXYOP</div>
+        </td>
+        <td><span class="pill">제과/패스트푸드/분식</span></td>
+        <td class="distance">486m</td>
+        <td class="address">서울특별시 강남구 테헤란로 116 동경빌딩</td>
+        <td class="tel">02-3453-4054</td>
+        <td><a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 테헤란로 116 동경빌딩" target="_blank" rel="noopener">지도</a></td>
+      </tr>
+    
+      <tr data-name="since1982 전주식당" data-category="식권" data-distance="488" data-address="서울특별시 서초구 효령로77길 18 서초동, 신명스카이뷰멤버스, 1층 102호">
+        <td class="rank">94</td>
+        <td>
+          <div class="store-name">since1982 전주식당</div>
+          <div class="store-code">F61EDB</div>
+        </td>
+        <td><span class="pill">식권</span></td>
+        <td class="distance">488m</td>
+        <td class="address">서울특별시 서초구 효령로77길 18 서초동, 신명스카이뷰멤버스, 1층 102호</td>
+        <td class="tel">02-3473-7017</td>
+        <td><a class="map-link" href="https://map.naver.com/p/search/서울특별시 서초구 효령로77길 18 서초동, 신명스카이뷰멤버스, 1층 102호" target="_blank" rel="noopener">지도</a></td>
+      </tr>
+    
+      <tr data-name="KFC(강남역점)" data-category="제과/패스트푸드/분식" data-distance="490" data-address="서울특별시 서초구 서초대로77길 15 KFC강남역점">
+        <td class="rank">95</td>
+        <td>
+          <div class="store-name">KFC(강남역점)</div>
+          <div class="store-code">J9GWRG</div>
+        </td>
+        <td><span class="pill">제과/패스트푸드/분식</span></td>
+        <td class="distance">490m</td>
+        <td class="address">서울특별시 서초구 서초대로77길 15 KFC강남역점</td>
+        <td class="tel">02-532-4211</td>
+        <td><a class="map-link" href="https://map.naver.com/p/search/서울특별시 서초구 서초대로77길 15 KFC강남역점" target="_blank" rel="noopener">지도</a></td>
+      </tr>
+    
+      <tr data-name="뚜레쥬르(카페역삼점)" data-category="제과/패스트푸드/분식" data-distance="493" data-address="서울특별시 강남구 테헤란로8길 21 (역삼동) 강남화인빌딩 1층">
+        <td class="rank">96</td>
+        <td>
+          <div class="store-name">뚜레쥬르(카페역삼점)</div>
+          <div class="store-code">QMWWAS</div>
+        </td>
+        <td><span class="pill">제과/패스트푸드/분식</span></td>
+        <td class="distance">493m</td>
+        <td class="address">서울특별시 강남구 테헤란로8길 21 (역삼동) 강남화인빌딩 1층</td>
+        <td class="tel">1577-0700</td>
+        <td><a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 테헤란로8길 21 (역삼동) 강남화인빌딩 1층" target="_blank" rel="noopener">지도</a></td>
+      </tr>
+    
+      <tr data-name="[자판기] 현대자동차 에어랩연구소" data-category="기타" data-distance="496" data-address="서울특별시 강남구 강남대로94길 10 강남K스퀘어 6층">
+        <td class="rank">97</td>
+        <td>
+          <div class="store-name">[자판기] 현대자동차 에어랩연구소</div>
+          <div class="store-code">OKBGTD</div>
+        </td>
+        <td><span class="pill">기타</span></td>
+        <td class="distance">496m</td>
+        <td class="address">서울특별시 강남구 강남대로94길 10 강남K스퀘어 6층</td>
+        <td class="tel">02-3453-9622</td>
+        <td><a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 강남대로94길 10 강남K스퀘어 6층" target="_blank" rel="noopener">지도</a></td>
+      </tr>
+    
+          </tbody>
+        </table>
+      </div>
+
+      <div class="cards" id="cardList">
+        
+      <article class="store-card" data-name="무아국수" data-category="식권" data-distance="12" data-address="서울특별시 서초구 강남대로55길 9-15 1층 (서초동)">
+        <div class="card-top">
+          <div>
+            <div class="store-name">1. 무아국수</div>
+            <div class="store-code">4KD2KG</div>
+          </div>
+          <div class="distance-badge">12m</div>
+        </div>
+        <div class="card-meta">
+          <span class="pill">식권</span>
+          <span>02-523-3335</span>
+        </div>
+        <p class="card-address">서울특별시 서초구 강남대로55길 9-15 1층 (서초동)</p>
+        <a class="map-link" href="https://map.naver.com/p/search/서울특별시 서초구 강남대로55길 9-15 1층 (서초동)" target="_blank" rel="noopener">지도에서 보기</a>
+      </article>
+    
+      <article class="store-card" data-name="오늘통닭(강남역점)" data-category="식권" data-distance="21" data-address="서울특별시 서초구 서초대로74길 33 서초동, 비트빌 1층">
+        <div class="card-top">
+          <div>
+            <div class="store-name">2. 오늘통닭(강남역점)</div>
+            <div class="store-code">6JB4IF</div>
+          </div>
+          <div class="distance-badge">21m</div>
+        </div>
+        <div class="card-meta">
+          <span class="pill">식권</span>
+          <span>02-597-1977</span>
+        </div>
+        <p class="card-address">서울특별시 서초구 서초대로74길 33 서초동, 비트빌 1층</p>
+        <a class="map-link" href="https://map.naver.com/p/search/서울특별시 서초구 서초대로74길 33 서초동, 비트빌 1층" target="_blank" rel="noopener">지도에서 보기</a>
+      </article>
+    
+      <article class="store-card" data-name="동명태" data-category="식권" data-distance="25" data-address="서울특별시 서초구 서초대로74길 29 서초동, 서초파라곤">
+        <div class="card-top">
+          <div>
+            <div class="store-name">3. 동명태</div>
+            <div class="store-code">V35Y2S</div>
+          </div>
+          <div class="distance-badge">25m</div>
+        </div>
+        <div class="card-meta">
+          <span class="pill">식권</span>
+          <span>02-525-3334</span>
+        </div>
+        <p class="card-address">서울특별시 서초구 서초대로74길 29 서초동, 서초파라곤</p>
+        <a class="map-link" href="https://map.naver.com/p/search/서울특별시 서초구 서초대로74길 29 서초동, 서초파라곤" target="_blank" rel="noopener">지도에서 보기</a>
+      </article>
+    
+      <article class="store-card" data-name="본죽&amp;비빔밥cafe(강남역점)" data-category="음식점" data-distance="32" data-address="서울특별시 서초구 서초대로78길 36 강남지웰타워 201호">
+        <div class="card-top">
+          <div>
+            <div class="store-name">4. 본죽&amp;비빔밥cafe(강남역점)</div>
+            <div class="store-code">X489L7</div>
+          </div>
+          <div class="distance-badge">32m</div>
+        </div>
+        <div class="card-meta">
+          <span class="pill">음식점</span>
+          <span>02-525-6653</span>
+        </div>
+        <p class="card-address">서울특별시 서초구 서초대로78길 36 강남지웰타워 201호</p>
+        <a class="map-link" href="https://map.naver.com/p/search/서울특별시 서초구 서초대로78길 36 강남지웰타워 201호" target="_blank" rel="noopener">지도에서 보기</a>
+      </article>
+    
+      <article class="store-card" data-name="스타벅스(서초파라곤점)" data-category="카페" data-distance="37" data-address="서울특별시 서초구 서초동 1327-29 서초파라곤">
+        <div class="card-top">
+          <div>
+            <div class="store-name">5. 스타벅스(서초파라곤점)</div>
+            <div class="store-code">SB_9916</div>
+          </div>
+          <div class="distance-badge">37m</div>
+        </div>
+        <div class="card-meta">
+          <span class="pill">카페</span>
+          <span>1522-3232</span>
+        </div>
+        <p class="card-address">서울특별시 서초구 서초동 1327-29 서초파라곤</p>
+        <a class="map-link" href="https://map.naver.com/p/search/서울특별시 서초구 서초동 1327-29 서초파라곤" target="_blank" rel="noopener">지도에서 보기</a>
+      </article>
+    
+      <article class="store-card" data-name="우리동네스시신조(강남점)" data-category="식권" data-distance="39" data-address="서울특별시 서초구 서초대로78길 32 3층">
+        <div class="card-top">
+          <div>
+            <div class="store-name">6. 우리동네스시신조(강남점)</div>
+            <div class="store-code">UJC62E</div>
+          </div>
+          <div class="distance-badge">39m</div>
+        </div>
+        <div class="card-meta">
+          <span class="pill">식권</span>
+          <span>02-523-5777</span>
+        </div>
+        <p class="card-address">서울특별시 서초구 서초대로78길 32 3층</p>
+        <a class="map-link" href="https://map.naver.com/p/search/서울특별시 서초구 서초대로78길 32 3층" target="_blank" rel="noopener">지도에서 보기</a>
+      </article>
+    
+      <article class="store-card" data-name="김명자굴국밥" data-category="식권" data-distance="48" data-address="서울특별시 서초구 서초대로78길 30 서초동 지하1층">
+        <div class="card-top">
+          <div>
+            <div class="store-name">7. 김명자굴국밥</div>
+            <div class="store-code">S6FZMW</div>
+          </div>
+          <div class="distance-badge">48m</div>
+        </div>
+        <div class="card-meta">
+          <span class="pill">식권</span>
+          <span>02-597-6007</span>
+        </div>
+        <p class="card-address">서울특별시 서초구 서초대로78길 30 서초동 지하1층</p>
+        <a class="map-link" href="https://map.naver.com/p/search/서울특별시 서초구 서초대로78길 30 서초동 지하1층" target="_blank" rel="noopener">지도에서 보기</a>
+      </article>
+    
+      <article class="store-card" data-name="샐러디(강남삼성타운점)" data-category="음식점" data-distance="72" data-address="서울특별시 서초구 강남대로 359 1층 111호">
+        <div class="card-top">
+          <div>
+            <div class="store-name">8. 샐러디(강남삼성타운점)</div>
+            <div class="store-code">ARYXXC</div>
+          </div>
+          <div class="distance-badge">72m</div>
+        </div>
+        <div class="card-meta">
+          <span class="pill">음식점</span>
+          <span>0231574297</span>
+        </div>
+        <p class="card-address">서울특별시 서초구 강남대로 359 1층 111호</p>
+        <a class="map-link" href="https://map.naver.com/p/search/서울특별시 서초구 강남대로 359 1층 111호" target="_blank" rel="noopener">지도에서 보기</a>
+      </article>
+    
+      <article class="store-card" data-name="병천아우내장터순대(강남역점)" data-category="식권" data-distance="79" data-address="서울특별시 서초구 서초대로74길 27, 1층 서초동, 강남역 한화오벨리스크">
+        <div class="card-top">
+          <div>
+            <div class="store-name">9. 병천아우내장터순대(강남역점)</div>
+            <div class="store-code">FQBB7N</div>
+          </div>
+          <div class="distance-badge">79m</div>
+        </div>
+        <div class="card-meta">
+          <span class="pill">식권</span>
+          <span>02-581-8921</span>
+        </div>
+        <p class="card-address">서울특별시 서초구 서초대로74길 27, 1층 서초동, 강남역 한화오벨리스크</p>
+        <a class="map-link" href="https://map.naver.com/p/search/서울특별시 서초구 서초대로74길 27, 1층 서초동, 강남역 한화오벨리스크" target="_blank" rel="noopener">지도에서 보기</a>
+      </article>
+    
+      <article class="store-card" data-name="삼성각" data-category="식권" data-distance="85" data-address="서울특별시 서초구 서초대로78길 42 서초동, 현대기림오피텔, 2층">
+        <div class="card-top">
+          <div>
+            <div class="store-name">10. 삼성각</div>
+            <div class="store-code">1UHN8P</div>
+          </div>
+          <div class="distance-badge">85m</div>
+        </div>
+        <div class="card-meta">
+          <span class="pill">식권</span>
+          <span>02-598-5553</span>
+        </div>
+        <p class="card-address">서울특별시 서초구 서초대로78길 42 서초동, 현대기림오피텔, 2층</p>
+        <a class="map-link" href="https://map.naver.com/p/search/서울특별시 서초구 서초대로78길 42 서초동, 현대기림오피텔, 2층" target="_blank" rel="noopener">지도에서 보기</a>
+      </article>
+    
+      <article class="store-card" data-name="슬로우캘리(강남역삼성타운점)" data-category="음식점" data-distance="85" data-address="서울특별시 서초구 서초대로74길 23 (서초동  서초타운트라팰리스) 1층 103호">
+        <div class="card-top">
+          <div>
+            <div class="store-name">11. 슬로우캘리(강남역삼성타운점)</div>
+            <div class="store-code">XWO2YO</div>
+          </div>
+          <div class="distance-badge">85m</div>
+        </div>
+        <div class="card-meta">
+          <span class="pill">음식점</span>
+          <span>0260820022</span>
+        </div>
+        <p class="card-address">서울특별시 서초구 서초대로74길 23 (서초동  서초타운트라팰리스) 1층 103호</p>
+        <a class="map-link" href="https://map.naver.com/p/search/서울특별시 서초구 서초대로74길 23 (서초동  서초타운트라팰리스) 1층 103호" target="_blank" rel="noopener">지도에서 보기</a>
+      </article>
+    
+      <article class="store-card" data-name="에슬로우커피(강남역점)" data-category="카페" data-distance="85" data-address="서울특별시 서초구 서초대로74길 23 (서초동, 서초타운트라팰리스) 1층 110호">
+        <div class="card-top">
+          <div>
+            <div class="store-name">12. 에슬로우커피(강남역점)</div>
+            <div class="store-code">RYYQRB</div>
+          </div>
+          <div class="distance-badge">85m</div>
+        </div>
+        <div class="card-meta">
+          <span class="pill">카페</span>
+          <span>02-3487-0908</span>
+        </div>
+        <p class="card-address">서울특별시 서초구 서초대로74길 23 (서초동, 서초타운트라팰리스) 1층 110호</p>
+        <a class="map-link" href="https://map.naver.com/p/search/서울특별시 서초구 서초대로74길 23 (서초동, 서초타운트라팰리스) 1층 110호" target="_blank" rel="noopener">지도에서 보기</a>
+      </article>
+    
+      <article class="store-card" data-name="커피빈(강남대로점)" data-category="카페" data-distance="102" data-address="서울특별시 서초구 강남대로 369 1층 커피빈(강남대로점)">
+        <div class="card-top">
+          <div>
+            <div class="store-name">13. 커피빈(강남대로점)</div>
+            <div class="store-code">TSMRSH</div>
+          </div>
+          <div class="distance-badge">102m</div>
+        </div>
+        <div class="card-meta">
+          <span class="pill">카페</span>
+          <span>025885778</span>
+        </div>
+        <p class="card-address">서울특별시 서초구 강남대로 369 1층 커피빈(강남대로점)</p>
+        <a class="map-link" href="https://map.naver.com/p/search/서울특별시 서초구 강남대로 369 1층 커피빈(강남대로점)" target="_blank" rel="noopener">지도에서 보기</a>
+      </article>
+    
+      <article class="store-card" data-name="오한수우육면가(강남삼성타운점)" data-category="식권" data-distance="115" data-address="서울특별시 서초구 서초대로74길 23 2층 203호 (서초동, 서초타운트라팰리스)">
+        <div class="card-top">
+          <div>
+            <div class="store-name">14. 오한수우육면가(강남삼성타운점)</div>
+            <div class="store-code">5R4PTO</div>
+          </div>
+          <div class="distance-badge">115m</div>
+        </div>
+        <div class="card-meta">
+          <span class="pill">식권</span>
+          <span>02-597-6906</span>
+        </div>
+        <p class="card-address">서울특별시 서초구 서초대로74길 23 2층 203호 (서초동, 서초타운트라팰리스)</p>
+        <a class="map-link" href="https://map.naver.com/p/search/서울특별시 서초구 서초대로74길 23 2층 203호 (서초동, 서초타운트라팰리스)" target="_blank" rel="noopener">지도에서 보기</a>
+      </article>
+    
+      <article class="store-card" data-name="이태원천상(강남역점)" data-category="식권" data-distance="120" data-address="서울특별시 서초구 서초대로74길 23, 지하1층 서초동, 서초타운트라팰리스">
+        <div class="card-top">
+          <div>
+            <div class="store-name">15. 이태원천상(강남역점)</div>
+            <div class="store-code">V4A2YO</div>
+          </div>
+          <div class="distance-badge">120m</div>
+        </div>
+        <div class="card-meta">
+          <span class="pill">식권</span>
+          <span>02-587-2520</span>
+        </div>
+        <p class="card-address">서울특별시 서초구 서초대로74길 23, 지하1층 서초동, 서초타운트라팰리스</p>
+        <a class="map-link" href="https://map.naver.com/p/search/서울특별시 서초구 서초대로74길 23, 지하1층 서초동, 서초타운트라팰리스" target="_blank" rel="noopener">지도에서 보기</a>
+      </article>
+    
+      <article class="store-card" data-name="순남시래기(강남역점)" data-category="식권" data-distance="123" data-address="서울특별시 서초구 서초대로74길 23 서초동, 서초타운트라팰리스, 지하1층 B104호">
+        <div class="card-top">
+          <div>
+            <div class="store-name">16. 순남시래기(강남역점)</div>
+            <div class="store-code">SGBOO8</div>
+          </div>
+          <div class="distance-badge">123m</div>
+        </div>
+        <div class="card-meta">
+          <span class="pill">식권</span>
+          <span>02-525-1544</span>
+        </div>
+        <p class="card-address">서울특별시 서초구 서초대로74길 23 서초동, 서초타운트라팰리스, 지하1층 B104호</p>
+        <a class="map-link" href="https://map.naver.com/p/search/서울특별시 서초구 서초대로74길 23 서초동, 서초타운트라팰리스, 지하1층 B104호" target="_blank" rel="noopener">지도에서 보기</a>
+      </article>
+    
+      <article class="store-card" data-name="폴바셋(강남삼성타운점)" data-category="카페" data-distance="125" data-address="서울특별시 서초구 서초대로78길  22 홍우빌딩">
+        <div class="card-top">
+          <div>
+            <div class="store-name">17. 폴바셋(강남삼성타운점)</div>
+            <div class="store-code">3CI2SF</div>
+          </div>
+          <div class="distance-badge">125m</div>
+        </div>
+        <div class="card-meta">
+          <span class="pill">카페</span>
+          <span>025235656</span>
+        </div>
+        <p class="card-address">서울특별시 서초구 서초대로78길  22 홍우빌딩</p>
+        <a class="map-link" href="https://map.naver.com/p/search/서울특별시 서초구 서초대로78길  22 홍우빌딩" target="_blank" rel="noopener">지도에서 보기</a>
+      </article>
+    
+      <article class="store-card" data-name="던킨도너츠(강남본점점)" data-category="제과/패스트푸드/분식" data-distance="138" data-address="서울특별시 서초구 강남대로 373 (서초동, 홍우빌딩 1층)">
+        <div class="card-top">
+          <div>
+            <div class="store-name">18. 던킨도너츠(강남본점점)</div>
+            <div class="store-code">VYBI4Z</div>
+          </div>
+          <div class="distance-badge">138m</div>
+        </div>
+        <div class="card-meta">
+          <span class="pill">제과/패스트푸드/분식</span>
+          <span>02-3475-1031</span>
+        </div>
+        <p class="card-address">서울특별시 서초구 강남대로 373 (서초동, 홍우빌딩 1층)</p>
+        <a class="map-link" href="https://map.naver.com/p/search/서울특별시 서초구 강남대로 373 (서초동, 홍우빌딩 1층)" target="_blank" rel="noopener">지도에서 보기</a>
+      </article>
+    
+      <article class="store-card" data-name="하이라이트키친 샐러드&amp;샌드위치" data-category="음식점" data-distance="152" data-address="서울특별시 서초구 서초대로74길 49 (서초동) 지하1층 하이라이트피트니스 내">
+        <div class="card-top">
+          <div>
+            <div class="store-name">19. 하이라이트키친 샐러드&amp;샌드위치</div>
+            <div class="store-code">SELF_J15LNM</div>
+          </div>
+          <div class="distance-badge">152m</div>
+        </div>
+        <div class="card-meta">
+          <span class="pill">음식점</span>
+          <span>070-8287-2563</span>
+        </div>
+        <p class="card-address">서울특별시 서초구 서초대로74길 49 (서초동) 지하1층 하이라이트피트니스 내</p>
+        <a class="map-link" href="https://map.naver.com/p/search/서울특별시 서초구 서초대로74길 49 (서초동) 지하1층 하이라이트피트니스 내" target="_blank" rel="noopener">지도에서 보기</a>
+      </article>
+    
+      <article class="store-card" data-name="버거킹(강남진솔점)" data-category="제과/패스트푸드/분식" data-distance="169" data-address="서울특별시 강남구 강남대로 368">
+        <div class="card-top">
+          <div>
+            <div class="store-name">20. 버거킹(강남진솔점)</div>
+            <div class="store-code">BKR_00000088</div>
+          </div>
+          <div class="distance-badge">169m</div>
+        </div>
+        <div class="card-meta">
+          <span class="pill">제과/패스트푸드/분식</span>
+          <span>02-555-0236</span>
+        </div>
+        <p class="card-address">서울특별시 강남구 강남대로 368</p>
+        <a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 강남대로 368" target="_blank" rel="noopener">지도에서 보기</a>
+      </article>
+    
+      <article class="store-card" data-name="던킨(SPC스퀘어점)" data-category="제과/패스트푸드/분식" data-distance="183" data-address="서울특별시 강남구 강남대로 352, 지상2층 spc스퀘어 강남">
+        <div class="card-top">
+          <div>
+            <div class="store-name">21. 던킨(SPC스퀘어점)</div>
+            <div class="store-code">V91WSO</div>
+          </div>
+          <div class="distance-badge">183m</div>
+        </div>
+        <div class="card-meta">
+          <span class="pill">제과/패스트푸드/분식</span>
+          <span>02-508-2818</span>
+        </div>
+        <p class="card-address">서울특별시 강남구 강남대로 352, 지상2층 spc스퀘어 강남</p>
+        <a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 강남대로 352, 지상2층 spc스퀘어 강남" target="_blank" rel="noopener">지도에서 보기</a>
+      </article>
+    
+      <article class="store-card" data-name="스타벅스(서초우성사거리점)" data-category="카페" data-distance="185" data-address="서울특별시 서초구 서초동 1329-7 신덕빌딩">
+        <div class="card-top">
+          <div>
+            <div class="store-name">22. 스타벅스(서초우성사거리점)</div>
+            <div class="store-code">SB_3536</div>
+          </div>
+          <div class="distance-badge">185m</div>
+        </div>
+        <div class="card-meta">
+          <span class="pill">카페</span>
+          <span>1522-3232</span>
+        </div>
+        <p class="card-address">서울특별시 서초구 서초동 1329-7 신덕빌딩</p>
+        <a class="map-link" href="https://map.naver.com/p/search/서울특별시 서초구 서초동 1329-7 신덕빌딩" target="_blank" rel="noopener">지도에서 보기</a>
+      </article>
+    
+      <article class="store-card" data-name="쉐이크쉑(강남스퀘어점)" data-category="제과/패스트푸드/분식" data-distance="186" data-address="서울특별시 강남구 강남대로 352 1층 1층">
+        <div class="card-top">
+          <div>
+            <div class="store-name">23. 쉐이크쉑(강남스퀘어점)</div>
+            <div class="store-code">831BG1</div>
+          </div>
+          <div class="distance-badge">186m</div>
+        </div>
+        <div class="card-meta">
+          <span class="pill">제과/패스트푸드/분식</span>
+          <span>025680380</span>
+        </div>
+        <p class="card-address">서울특별시 강남구 강남대로 352 1층 1층</p>
+        <a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 강남대로 352 1층 1층" target="_blank" rel="noopener">지도에서 보기</a>
+      </article>
+    
+      <article class="store-card" data-name="오니기리와이규동(강남역점)" data-category="식권" data-distance="186" data-address="서울특별시 서초구 강남대로 375 서초동, 서초현대타워아파트">
+        <div class="card-top">
+          <div>
+            <div class="store-name">24. 오니기리와이규동(강남역점)</div>
+            <div class="store-code">VO7QSQ</div>
+          </div>
+          <div class="distance-badge">186m</div>
+        </div>
+        <div class="card-meta">
+          <span class="pill">식권</span>
+          <span>02-523-0291</span>
+        </div>
+        <p class="card-address">서울특별시 서초구 강남대로 375 서초동, 서초현대타워아파트</p>
+        <a class="map-link" href="https://map.naver.com/p/search/서울특별시 서초구 강남대로 375 서초동, 서초현대타워아파트" target="_blank" rel="noopener">지도에서 보기</a>
+      </article>
+    
+      <article class="store-card" data-name="에그드랍(강남본점)" data-category="제과/패스트푸드/분식" data-distance="222" data-address="서울특별시 서초구 강남대로55길 24 풍림아이원매직">
+        <div class="card-top">
+          <div>
+            <div class="store-name">25. 에그드랍(강남본점)</div>
+            <div class="store-code">W8D93S</div>
+          </div>
+          <div class="distance-badge">222m</div>
+        </div>
+        <div class="card-meta">
+          <span class="pill">제과/패스트푸드/분식</span>
+          <span>1670-4809</span>
+        </div>
+        <p class="card-address">서울특별시 서초구 강남대로55길 24 풍림아이원매직</p>
+        <a class="map-link" href="https://map.naver.com/p/search/서울특별시 서초구 강남대로55길 24 풍림아이원매직" target="_blank" rel="noopener">지도에서 보기</a>
+      </article>
+    
+      <article class="store-card" data-name="군선생" data-category="식권" data-distance="223" data-address="서울특별시 서초구 강남대로55길 24 풍림아이원매직 지하101호 (서초동)">
+        <div class="card-top">
+          <div>
+            <div class="store-name">26. 군선생</div>
+            <div class="store-code">KTNHAJ</div>
+          </div>
+          <div class="distance-badge">223m</div>
+        </div>
+        <div class="card-meta">
+          <span class="pill">식권</span>
+          <span>070-4738-7544</span>
+        </div>
+        <p class="card-address">서울특별시 서초구 강남대로55길 24 풍림아이원매직 지하101호 (서초동)</p>
+        <a class="map-link" href="https://map.naver.com/p/search/서울특별시 서초구 강남대로55길 24 풍림아이원매직 지하101호 (서초동)" target="_blank" rel="noopener">지도에서 보기</a>
+      </article>
+    
+      <article class="store-card" data-name="선향정샤브샤브" data-category="식권" data-distance="223" data-address="서울특별시 서초구 강남대로55길 24 서초동, 풍림아이원매직 2층 202호~203호">
+        <div class="card-top">
+          <div>
+            <div class="store-name">27. 선향정샤브샤브</div>
+            <div class="store-code">JPGIF0</div>
+          </div>
+          <div class="distance-badge">223m</div>
+        </div>
+        <div class="card-meta">
+          <span class="pill">식권</span>
+          <span>02-2055-0518</span>
+        </div>
+        <p class="card-address">서울특별시 서초구 강남대로55길 24 서초동, 풍림아이원매직 2층 202호~203호</p>
+        <a class="map-link" href="https://map.naver.com/p/search/서울특별시 서초구 강남대로55길 24 서초동, 풍림아이원매직 2층 202호~203호" target="_blank" rel="noopener">지도에서 보기</a>
+      </article>
+    
+      <article class="store-card" data-name="크리스피크림도넛(강남역점)" data-category="제과/패스트푸드/분식" data-distance="224" data-address="서울특별시 강남구 강남대로 376">
+        <div class="card-top">
+          <div>
+            <div class="store-name">28. 크리스피크림도넛(강남역점)</div>
+            <div class="store-code">P82YID</div>
+          </div>
+          <div class="distance-badge">224m</div>
+        </div>
+        <div class="card-meta">
+          <span class="pill">제과/패스트푸드/분식</span>
+          <span>02-567-1937</span>
+        </div>
+        <p class="card-address">서울특별시 강남구 강남대로 376</p>
+        <a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 강남대로 376" target="_blank" rel="noopener">지도에서 보기</a>
+      </article>
+    
+      <article class="store-card" data-name="아티제(강남역점)" data-category="카페" data-distance="225" data-address="서울특별시 강남구 강남대로 378 준빌딩 1층">
+        <div class="card-top">
+          <div>
+            <div class="store-name">29. 아티제(강남역점)</div>
+            <div class="store-code">09EFJP</div>
+          </div>
+          <div class="distance-badge">225m</div>
+        </div>
+        <div class="card-meta">
+          <span class="pill">카페</span>
+          <span>025582155</span>
+        </div>
+        <p class="card-address">서울특별시 강남구 강남대로 378 준빌딩 1층</p>
+        <a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 강남대로 378 준빌딩 1층" target="_blank" rel="noopener">지도에서 보기</a>
+      </article>
+    
+      <article class="store-card" data-name="아티제(삼성타운점)" data-category="카페" data-distance="225" data-address="서울특별시 서초구 서초대로74길 11 삼성전자 서초사옥 지하1층">
+        <div class="card-top">
+          <div>
+            <div class="store-name">30. 아티제(삼성타운점)</div>
+            <div class="store-code">53M97E</div>
+          </div>
+          <div class="distance-badge">225m</div>
+        </div>
+        <div class="card-meta">
+          <span class="pill">카페</span>
+          <span>02-598-0017</span>
+        </div>
+        <p class="card-address">서울특별시 서초구 서초대로74길 11 삼성전자 서초사옥 지하1층</p>
+        <a class="map-link" href="https://map.naver.com/p/search/서울특별시 서초구 서초대로74길 11 삼성전자 서초사옥 지하1층" target="_blank" rel="noopener">지도에서 보기</a>
+      </article>
+    
+      <article class="store-card" data-name="브릭샌드(강남역점)" data-category="식권" data-distance="226" data-address="서울특별시 강남구 강남대로 지하396 (역삼동) 지하 1층 4번">
+        <div class="card-top">
+          <div>
+            <div class="store-name">31. 브릭샌드(강남역점)</div>
+            <div class="store-code">SELF_U194M0</div>
+          </div>
+          <div class="distance-badge">226m</div>
+        </div>
+        <div class="card-meta">
+          <span class="pill">식권</span>
+          <span>01026054974</span>
+        </div>
+        <p class="card-address">서울특별시 강남구 강남대로 지하396 (역삼동) 지하 1층 4번</p>
+        <a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 강남대로 지하396 (역삼동) 지하 1층 4번" target="_blank" rel="noopener">지도에서 보기</a>
+      </article>
+    
+      <article class="store-card" data-name="1992 덮밥&amp;짜글이_KIOSK" data-category="식권" data-distance="227" data-address="서울특별시 강남구 강남대로84길 6 1층(역삼동)">
+        <div class="card-top">
+          <div>
+            <div class="store-name">32. 1992 덮밥&amp;짜글이_KIOSK</div>
+            <div class="store-code">IOP40O</div>
+          </div>
+          <div class="distance-badge">227m</div>
+        </div>
+        <div class="card-meta">
+          <span class="pill">식권</span>
+          <span>01023671465</span>
+        </div>
+        <p class="card-address">서울특별시 강남구 강남대로84길 6 1층(역삼동)</p>
+        <a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 강남대로84길 6 1층(역삼동)" target="_blank" rel="noopener">지도에서 보기</a>
+      </article>
+    
+      <article class="store-card" data-name="아티제(삼성타운2점)" data-category="카페" data-distance="228" data-address="서울특별시 서초구 서초대로74길  11 삼성전자빌딩">
+        <div class="card-top">
+          <div>
+            <div class="store-name">33. 아티제(삼성타운2점)</div>
+            <div class="store-code">CD8NRR</div>
+          </div>
+          <div class="distance-badge">228m</div>
+        </div>
+        <div class="card-meta">
+          <span class="pill">카페</span>
+          <span>02-598-2155</span>
+        </div>
+        <p class="card-address">서울특별시 서초구 서초대로74길  11 삼성전자빌딩</p>
+        <a class="map-link" href="https://map.naver.com/p/search/서울특별시 서초구 서초대로74길  11 삼성전자빌딩" target="_blank" rel="noopener">지도에서 보기</a>
+      </article>
+    
+      <article class="store-card" data-name="주식회사 찬란한아구직영사업본부" data-category="식권" data-distance="228" data-address="서울특별시 강남구 강남대로78길 12 2층201호(역삼동, 예미프레스티지)">
+        <div class="card-top">
+          <div>
+            <div class="store-name">34. 주식회사 찬란한아구직영사업본부</div>
+            <div class="store-code">9UJUL8</div>
+          </div>
+          <div class="distance-badge">228m</div>
+        </div>
+        <div class="card-meta">
+          <span class="pill">식권</span>
+          <span>070-4129-2939</span>
+        </div>
+        <p class="card-address">서울특별시 강남구 강남대로78길 12 2층201호(역삼동, 예미프레스티지)</p>
+        <a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 강남대로78길 12 2층201호(역삼동, 예미프레스티지)" target="_blank" rel="noopener">지도에서 보기</a>
+      </article>
+    
+      <article class="store-card" data-name="쿠차라(삼성서초사옥점)" data-category="음식점" data-distance="228" data-address="서울특별시 서초구 서초대로74길 11 삼성전자빌딩">
+        <div class="card-top">
+          <div>
+            <div class="store-name">35. 쿠차라(삼성서초사옥점)</div>
+            <div class="store-code">3NZUUX</div>
+          </div>
+          <div class="distance-badge">228m</div>
+        </div>
+        <div class="card-meta">
+          <span class="pill">음식점</span>
+          <span>02-551-3501</span>
+        </div>
+        <p class="card-address">서울특별시 서초구 서초대로74길 11 삼성전자빌딩</p>
+        <a class="map-link" href="https://map.naver.com/p/search/서울특별시 서초구 서초대로74길 11 삼성전자빌딩" target="_blank" rel="noopener">지도에서 보기</a>
+      </article>
+    
+      <article class="store-card" data-name="정상마라" data-category="식권" data-distance="231" data-address="서울특별시 서초구 사임당로 181 1층 103호">
+        <div class="card-top">
+          <div>
+            <div class="store-name">36. 정상마라</div>
+            <div class="store-code">TMYOJ2</div>
+          </div>
+          <div class="distance-badge">231m</div>
+        </div>
+        <div class="card-meta">
+          <span class="pill">식권</span>
+          <span>02-523-2827</span>
+        </div>
+        <p class="card-address">서울특별시 서초구 사임당로 181 1층 103호</p>
+        <a class="map-link" href="https://map.naver.com/p/search/서울특별시 서초구 사임당로 181 1층 103호" target="_blank" rel="noopener">지도에서 보기</a>
+      </article>
+    
+      <article class="store-card" data-name="이디야(역삼플래티넘점)" data-category="카페" data-distance="239" data-address="서울특별시 강남구 테헤란로4길 46 쌍용플래티넘밸류 108호">
+        <div class="card-top">
+          <div>
+            <div class="store-name">37. 이디야(역삼플래티넘점)</div>
+            <div class="store-code">SK6LMW</div>
+          </div>
+          <div class="distance-badge">239m</div>
+        </div>
+        <div class="card-meta">
+          <span class="pill">카페</span>
+          <span>02-2051-5698</span>
+        </div>
+        <p class="card-address">서울특별시 강남구 테헤란로4길 46 쌍용플래티넘밸류 108호</p>
+        <a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 테헤란로4길 46 쌍용플래티넘밸류 108호" target="_blank" rel="noopener">지도에서 보기</a>
+      </article>
+    
+      <article class="store-card" data-name="왓쇼이켄_QR" data-category="음식점" data-distance="244" data-address="서울특별시 강남구 테헤란로4길 46 (역삼동, 쌍용플래티넘밸류) 지하1층 B120~121호">
+        <div class="card-top">
+          <div>
+            <div class="store-name">38. 왓쇼이켄_QR</div>
+            <div class="store-code">SXSJVF</div>
+          </div>
+          <div class="distance-badge">244m</div>
+        </div>
+        <div class="card-meta">
+          <span class="pill">음식점</span>
+          <span>02-508-5127</span>
+        </div>
+        <p class="card-address">서울특별시 강남구 테헤란로4길 46 (역삼동, 쌍용플래티넘밸류) 지하1층 B120~121호</p>
+        <a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 테헤란로4길 46 (역삼동, 쌍용플래티넘밸류) 지하1층 B120~121호" target="_blank" rel="noopener">지도에서 보기</a>
+      </article>
+    
+      <article class="store-card" data-name="청담돈가스" data-category="식권" data-distance="244" data-address="서울특별시 강남구 테헤란로4길 46 역삼동, 쌍용플래티넘밸류, B124호">
+        <div class="card-top">
+          <div>
+            <div class="store-name">39. 청담돈가스</div>
+            <div class="store-code">CWU7BW</div>
+          </div>
+          <div class="distance-badge">244m</div>
+        </div>
+        <div class="card-meta">
+          <span class="pill">식권</span>
+          <span>02-3443-6947</span>
+        </div>
+        <p class="card-address">서울특별시 강남구 테헤란로4길 46 역삼동, 쌍용플래티넘밸류, B124호</p>
+        <a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 테헤란로4길 46 역삼동, 쌍용플래티넘밸류, B124호" target="_blank" rel="noopener">지도에서 보기</a>
+      </article>
+    
+      <article class="store-card" data-name="한율막국수" data-category="식권" data-distance="244" data-address="서울특별시 강남구 테헤란로4길 46 역삼동, 쌍용플래티넘밸류 B135">
+        <div class="card-top">
+          <div>
+            <div class="store-name">40. 한율막국수</div>
+            <div class="store-code">XE6L31</div>
+          </div>
+          <div class="distance-badge">244m</div>
+        </div>
+        <div class="card-meta">
+          <span class="pill">식권</span>
+          <span>02-446-6472</span>
+        </div>
+        <p class="card-address">서울특별시 강남구 테헤란로4길 46 역삼동, 쌍용플래티넘밸류 B135</p>
+        <a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 테헤란로4길 46 역삼동, 쌍용플래티넘밸류 B135" target="_blank" rel="noopener">지도에서 보기</a>
+      </article>
+    
+      <article class="store-card" data-name="더드림 본점" data-category="음식점" data-distance="253" data-address="서울특별시 강남구 역삼로1길 18 (역삼동) 1층">
+        <div class="card-top">
+          <div>
+            <div class="store-name">41. 더드림 본점</div>
+            <div class="store-code">SELF_IHAMLH</div>
+          </div>
+          <div class="distance-badge">253m</div>
+        </div>
+        <div class="card-meta">
+          <span class="pill">음식점</span>
+          <span>025086777</span>
+        </div>
+        <p class="card-address">서울특별시 강남구 역삼로1길 18 (역삼동) 1층</p>
+        <a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 역삼로1길 18 (역삼동) 1층" target="_blank" rel="noopener">지도에서 보기</a>
+      </article>
+    
+      <article class="store-card" data-name="아방궁" data-category="식권" data-distance="253" data-address="서울특별시 강남구 역삼로 1길 18, 지상2층">
+        <div class="card-top">
+          <div>
+            <div class="store-name">42. 아방궁</div>
+            <div class="store-code">Z45NL2</div>
+          </div>
+          <div class="distance-badge">253m</div>
+        </div>
+        <div class="card-meta">
+          <span class="pill">식권</span>
+          <span>02-568-0772</span>
+        </div>
+        <p class="card-address">서울특별시 강남구 역삼로 1길 18, 지상2층</p>
+        <a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 역삼로 1길 18, 지상2층" target="_blank" rel="noopener">지도에서 보기</a>
+      </article>
+    
+      <article class="store-card" data-name="카페마마스(강남역점)" data-category="식권" data-distance="256" data-address="서울특별시 서초구 서운로 138, 1층 서초동, 서초동아타워">
+        <div class="card-top">
+          <div>
+            <div class="store-name">43. 카페마마스(강남역점)</div>
+            <div class="store-code">YFX43X</div>
+          </div>
+          <div class="distance-badge">256m</div>
+        </div>
+        <div class="card-meta">
+          <span class="pill">식권</span>
+          <span>02-584-1260</span>
+        </div>
+        <p class="card-address">서울특별시 서초구 서운로 138, 1층 서초동, 서초동아타워</p>
+        <a class="map-link" href="https://map.naver.com/p/search/서울특별시 서초구 서운로 138, 1층 서초동, 서초동아타워" target="_blank" rel="noopener">지도에서 보기</a>
+      </article>
+    
+      <article class="store-card" data-name="스타벅스(강남비젼타워점)" data-category="카페" data-distance="257" data-address="서울특별시 강남구 역삼동 826-26번지 1층 101호">
+        <div class="card-top">
+          <div>
+            <div class="store-name">44. 스타벅스(강남비젼타워점)</div>
+            <div class="store-code">SB_9692</div>
+          </div>
+          <div class="distance-badge">257m</div>
+        </div>
+        <div class="card-meta">
+          <span class="pill">카페</span>
+          <span>1522-3232</span>
+        </div>
+        <p class="card-address">서울특별시 강남구 역삼동 826-26번지 1층 101호</p>
+        <a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 역삼동 826-26번지 1층 101호" target="_blank" rel="noopener">지도에서 보기</a>
+      </article>
+    
+      <article class="store-card" data-name="공차(서초우성점)" data-category="카페" data-distance="266" data-address="서울특별시 서초구 사임당로 174 1층 105호(서초동, 강남미래타워)">
+        <div class="card-top">
+          <div>
+            <div class="store-name">45. 공차(서초우성점)</div>
+            <div class="store-code">5ID3TF</div>
+          </div>
+          <div class="distance-badge">266m</div>
+        </div>
+        <div class="card-meta">
+          <span class="pill">카페</span>
+          <span>02-588-7377</span>
+        </div>
+        <p class="card-address">서울특별시 서초구 사임당로 174 1층 105호(서초동, 강남미래타워)</p>
+        <a class="map-link" href="https://map.naver.com/p/search/서울특별시 서초구 사임당로 174 1층 105호(서초동, 강남미래타워)" target="_blank" rel="noopener">지도에서 보기</a>
+      </article>
+    
+      <article class="store-card" data-name="매머드익스프레스(삼성타운점)" data-category="카페" data-distance="266" data-address="서울특별시 서초구 서운로 138, 108호(서초동, 서초동아타워)">
+        <div class="card-top">
+          <div>
+            <div class="store-name">46. 매머드익스프레스(삼성타운점)</div>
+            <div class="store-code">JQW8FC</div>
+          </div>
+          <div class="distance-badge">266m</div>
+        </div>
+        <div class="card-meta">
+          <span class="pill">카페</span>
+          <span>02-515-1645</span>
+        </div>
+        <p class="card-address">서울특별시 서초구 서운로 138, 108호(서초동, 서초동아타워)</p>
+        <a class="map-link" href="https://map.naver.com/p/search/서울특별시 서초구 서운로 138, 108호(서초동, 서초동아타워)" target="_blank" rel="noopener">지도에서 보기</a>
+      </article>
+    
+      <article class="store-card" data-name="탄탄면공방(강남점)" data-category="식권" data-distance="267" data-address="서울특별시 강남구 테헤란로4길 40 역삼동, 신소애빌딩">
+        <div class="card-top">
+          <div>
+            <div class="store-name">47. 탄탄면공방(강남점)</div>
+            <div class="store-code">YM4C8J</div>
+          </div>
+          <div class="distance-badge">267m</div>
+        </div>
+        <div class="card-meta">
+          <span class="pill">식권</span>
+          <span>02-563-2229</span>
+        </div>
+        <p class="card-address">서울특별시 강남구 테헤란로4길 40 역삼동, 신소애빌딩</p>
+        <a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 테헤란로4길 40 역삼동, 신소애빌딩" target="_blank" rel="noopener">지도에서 보기</a>
+      </article>
+    
+      <article class="store-card" data-name="헤비스테이크(강남점)" data-category="식권" data-distance="271" data-address="서울특별시 강남구 테헤란로4길 32 역삼동, 역삼동우정에쉐르1 1층 103호">
+        <div class="card-top">
+          <div>
+            <div class="store-name">48. 헤비스테이크(강남점)</div>
+            <div class="store-code">GRU4C8</div>
+          </div>
+          <div class="distance-badge">271m</div>
+        </div>
+        <div class="card-meta">
+          <span class="pill">식권</span>
+          <span>02-557-3309</span>
+        </div>
+        <p class="card-address">서울특별시 강남구 테헤란로4길 32 역삼동, 역삼동우정에쉐르1 1층 103호</p>
+        <a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 테헤란로4길 32 역삼동, 역삼동우정에쉐르1 1층 103호" target="_blank" rel="noopener">지도에서 보기</a>
+      </article>
+    
+      <article class="store-card" data-name="멘노아지 강남역신분당선점" data-category="식권" data-distance="275" data-address="서울특별시 강남구 테헤란로4길 38 태영빌딩 1층">
+        <div class="card-top">
+          <div>
+            <div class="store-name">49. 멘노아지 강남역신분당선점</div>
+            <div class="store-code">BMA29F</div>
+          </div>
+          <div class="distance-badge">275m</div>
+        </div>
+        <div class="card-meta">
+          <span class="pill">식권</span>
+          <span>02-2051-5599</span>
+        </div>
+        <p class="card-address">서울특별시 강남구 테헤란로4길 38 태영빌딩 1층</p>
+        <a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 테헤란로4길 38 태영빌딩 1층" target="_blank" rel="noopener">지도에서 보기</a>
+      </article>
+    
+      <article class="store-card" data-name="리퍼크 메리츠타워본점" data-category="카페" data-distance="276" data-address="서울특별시 강남구 강남대로 382 (역삼동) 1층">
+        <div class="card-top">
+          <div>
+            <div class="store-name">50. 리퍼크 메리츠타워본점</div>
+            <div class="store-code">SELF_PN5Z10</div>
+          </div>
+          <div class="distance-badge">276m</div>
+        </div>
+        <div class="card-meta">
+          <span class="pill">카페</span>
+          <span>07041412010</span>
+        </div>
+        <p class="card-address">서울특별시 강남구 강남대로 382 (역삼동) 1층</p>
+        <a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 강남대로 382 (역삼동) 1층" target="_blank" rel="noopener">지도에서 보기</a>
+      </article>
+    
+      <article class="store-card" data-name="청담동마녀김밥(강남역점)" data-category="식권" data-distance="278" data-address="서울특별시 서초구 사임당로 180 1층">
+        <div class="card-top">
+          <div>
+            <div class="store-name">51. 청담동마녀김밥(강남역점)</div>
+            <div class="store-code">9Z0I3Q</div>
+          </div>
+          <div class="distance-badge">278m</div>
+        </div>
+        <div class="card-meta">
+          <span class="pill">식권</span>
+          <span>02-583-1119</span>
+        </div>
+        <p class="card-address">서울특별시 서초구 사임당로 180 1층</p>
+        <a class="map-link" href="https://map.naver.com/p/search/서울특별시 서초구 사임당로 180 1층" target="_blank" rel="noopener">지도에서 보기</a>
+      </article>
+    
+      <article class="store-card" data-name="커피빈(강남역랭기지타워점)" data-category="카페" data-distance="289" data-address="서울특별시 강남구 테헤란로4길 28 826-28호 1층 커피빈(강남역랭기지타워점)">
+        <div class="card-top">
+          <div>
+            <div class="store-name">52. 커피빈(강남역랭기지타워점)</div>
+            <div class="store-code">TXA7NC</div>
+          </div>
+          <div class="distance-badge">289m</div>
+        </div>
+        <div class="card-meta">
+          <span class="pill">카페</span>
+          <span>025633655</span>
+        </div>
+        <p class="card-address">서울특별시 강남구 테헤란로4길 28 826-28호 1층 커피빈(강남역랭기지타워점)</p>
+        <a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 테헤란로4길 28 826-28호 1층 커피빈(강남역랭기지타워점)" target="_blank" rel="noopener">지도에서 보기</a>
+      </article>
+    
+      <article class="store-card" data-name="투썸플레이스(강남역KR타워점)" data-category="카페" data-distance="290" data-address="서울특별시 강남구 강남대로84길 13 (역삼동) KR타워 1, 2층">
+        <div class="card-top">
+          <div>
+            <div class="store-name">53. 투썸플레이스(강남역KR타워점)</div>
+            <div class="store-code">X7HT25</div>
+          </div>
+          <div class="distance-badge">290m</div>
+        </div>
+        <div class="card-meta">
+          <span class="pill">카페</span>
+          <span>02-555-0517</span>
+        </div>
+        <p class="card-address">서울특별시 강남구 강남대로84길 13 (역삼동) KR타워 1, 2층</p>
+        <a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 강남대로84길 13 (역삼동) KR타워 1, 2층" target="_blank" rel="noopener">지도에서 보기</a>
+      </article>
+    
+      <article class="store-card" data-name="오샐러드(강남점)" data-category="음식점" data-distance="300" data-address="서울특별시 강남구 강남대로84길 15 (역삼동) 1층 108호">
+        <div class="card-top">
+          <div>
+            <div class="store-name">54. 오샐러드(강남점)</div>
+            <div class="store-code">SELF_F28JJD</div>
+          </div>
+          <div class="distance-badge">300m</div>
+        </div>
+        <div class="card-meta">
+          <span class="pill">음식점</span>
+          <span>0220395453</span>
+        </div>
+        <p class="card-address">서울특별시 강남구 강남대로84길 15 (역삼동) 1층 108호</p>
+        <a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 강남대로84길 15 (역삼동) 1층 108호" target="_blank" rel="noopener">지도에서 보기</a>
+      </article>
+    
+      <article class="store-card" data-name="코리안치킨클럽" data-category="식권" data-distance="302" data-address="서울특별시 강남구 강남대로78길 22 1층, 2층(역삼동)">
+        <div class="card-top">
+          <div>
+            <div class="store-name">55. 코리안치킨클럽</div>
+            <div class="store-code">3MS94I</div>
+          </div>
+          <div class="distance-badge">302m</div>
+        </div>
+        <div class="card-meta">
+          <span class="pill">식권</span>
+          <span>02-596-0001</span>
+        </div>
+        <p class="card-address">서울특별시 강남구 강남대로78길 22 1층, 2층(역삼동)</p>
+        <a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 강남대로78길 22 1층, 2층(역삼동)" target="_blank" rel="noopener">지도에서 보기</a>
+      </article>
+    
+      <article class="store-card" data-name="에그드랍(강남역점)" data-category="제과/패스트푸드/분식" data-distance="304" data-address="서울특별시 강남구 강남대로78길 22">
+        <div class="card-top">
+          <div>
+            <div class="store-name">56. 에그드랍(강남역점)</div>
+            <div class="store-code">4UYU38</div>
+          </div>
+          <div class="distance-badge">304m</div>
+        </div>
+        <div class="card-meta">
+          <span class="pill">제과/패스트푸드/분식</span>
+          <span>1670-4809</span>
+        </div>
+        <p class="card-address">서울특별시 강남구 강남대로78길 22</p>
+        <a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 강남대로78길 22" target="_blank" rel="noopener">지도에서 보기</a>
+      </article>
+    
+      <article class="store-card" data-name="경양식당임정훈" data-category="음식점" data-distance="312" data-address="서울특별시 강남구 강남대로84길 15 (역삼동) 1층">
+        <div class="card-top">
+          <div>
+            <div class="store-name">57. 경양식당임정훈</div>
+            <div class="store-code">GYD1AZ</div>
+          </div>
+          <div class="distance-badge">312m</div>
+        </div>
+        <div class="card-meta">
+          <span class="pill">음식점</span>
+          <span>021234567</span>
+        </div>
+        <p class="card-address">서울특별시 강남구 강남대로84길 15 (역삼동) 1층</p>
+        <a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 강남대로84길 15 (역삼동) 1층" target="_blank" rel="noopener">지도에서 보기</a>
+      </article>
+    
+      <article class="store-card" data-name="장칼&amp;짜글이_QR" data-category="음식점" data-distance="312" data-address="서울특별시 강남구 강남대로84길 15 (역삼동) 지하1층 B123호">
+        <div class="card-top">
+          <div>
+            <div class="store-name">58. 장칼&amp;짜글이_QR</div>
+            <div class="store-code">FO432J</div>
+          </div>
+          <div class="distance-badge">312m</div>
+        </div>
+        <div class="card-meta">
+          <span class="pill">음식점</span>
+          <span>02-553-3337</span>
+        </div>
+        <p class="card-address">서울특별시 강남구 강남대로84길 15 (역삼동) 지하1층 B123호</p>
+        <a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 강남대로84길 15 (역삼동) 지하1층 B123호" target="_blank" rel="noopener">지도에서 보기</a>
+      </article>
+    
+      <article class="store-card" data-name="오므토토마토(강남본점)" data-category="식권" data-distance="315" data-address="서울특별시 강남구 테헤란로4길 29 오므토토마토(강남본점)">
+        <div class="card-top">
+          <div>
+            <div class="store-name">59. 오므토토마토(강남본점)</div>
+            <div class="store-code">R2NLTH</div>
+          </div>
+          <div class="distance-badge">315m</div>
+        </div>
+        <div class="card-meta">
+          <span class="pill">식권</span>
+          <span>02-3452-8430</span>
+        </div>
+        <p class="card-address">서울특별시 강남구 테헤란로4길 29 오므토토마토(강남본점)</p>
+        <a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 테헤란로4길 29 오므토토마토(강남본점)" target="_blank" rel="noopener">지도에서 보기</a>
+      </article>
+    
+      <article class="store-card" data-name="힘난다떡볶이(본점)" data-category="식권" data-distance="315" data-address="서울특별시 강남구 강남대로84길 15, 지상1층 102-1호">
+        <div class="card-top">
+          <div>
+            <div class="store-name">60. 힘난다떡볶이(본점)</div>
+            <div class="store-code">6E56C1</div>
+          </div>
+          <div class="distance-badge">315m</div>
+        </div>
+        <div class="card-meta">
+          <span class="pill">식권</span>
+          <span>02-567-6768</span>
+        </div>
+        <p class="card-address">서울특별시 강남구 강남대로84길 15, 지상1층 102-1호</p>
+        <a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 강남대로84길 15, 지상1층 102-1호" target="_blank" rel="noopener">지도에서 보기</a>
+      </article>
+    
+      <article class="store-card" data-name="담소소사골순대육개장(강남본점)" data-category="식권" data-distance="317" data-address="서울특별시 강남구 강남대로78길 24 역삼동 1층">
+        <div class="card-top">
+          <div>
+            <div class="store-name">61. 담소소사골순대육개장(강남본점)</div>
+            <div class="store-code">T4HRNQ</div>
+          </div>
+          <div class="distance-badge">317m</div>
+        </div>
+        <div class="card-meta">
+          <span class="pill">식권</span>
+          <span>02-563-1821</span>
+        </div>
+        <p class="card-address">서울특별시 강남구 강남대로78길 24 역삼동 1층</p>
+        <a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 강남대로78길 24 역삼동 1층" target="_blank" rel="noopener">지도에서 보기</a>
+      </article>
+    
+      <article class="store-card" data-name="다모아한식_QR" data-category="음식점" data-distance="323" data-address="서울특별시 서초구 사임당로 158 (서초동) 지하1층 B135~136">
+        <div class="card-top">
+          <div>
+            <div class="store-name">62. 다모아한식_QR</div>
+            <div class="store-code">4PFX35</div>
+          </div>
+          <div class="distance-badge">323m</div>
+        </div>
+        <div class="card-meta">
+          <span class="pill">음식점</span>
+          <span>02-587-0918</span>
+        </div>
+        <p class="card-address">서울특별시 서초구 사임당로 158 (서초동) 지하1층 B135~136</p>
+        <a class="map-link" href="https://map.naver.com/p/search/서울특별시 서초구 사임당로 158 (서초동) 지하1층 B135~136" target="_blank" rel="noopener">지도에서 보기</a>
+      </article>
+    
+      <article class="store-card" data-name="반장즉석떡볶이(강남점)" data-category="식권" data-distance="326" data-address="서울특별시 강남구 테헤란로4길 25, 지하1층 역삼동">
+        <div class="card-top">
+          <div>
+            <div class="store-name">63. 반장즉석떡볶이(강남점)</div>
+            <div class="store-code">ESQGV5</div>
+          </div>
+          <div class="distance-badge">326m</div>
+        </div>
+        <div class="card-meta">
+          <span class="pill">식권</span>
+          <span>02-554-1991</span>
+        </div>
+        <p class="card-address">서울특별시 강남구 테헤란로4길 25, 지하1층 역삼동</p>
+        <a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 테헤란로4길 25, 지하1층 역삼동" target="_blank" rel="noopener">지도에서 보기</a>
+      </article>
+    
+      <article class="store-card" data-name="두배고기" data-category="식권" data-distance="345" data-address="서울특별시 강남구 테헤란로6길 42 역삼동">
+        <div class="card-top">
+          <div>
+            <div class="store-name">64. 두배고기</div>
+            <div class="store-code">E8ITI8</div>
+          </div>
+          <div class="distance-badge">345m</div>
+        </div>
+        <div class="card-meta">
+          <span class="pill">식권</span>
+          <span>0507-1442-0707</span>
+        </div>
+        <p class="card-address">서울특별시 강남구 테헤란로6길 42 역삼동</p>
+        <a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 테헤란로6길 42 역삼동" target="_blank" rel="noopener">지도에서 보기</a>
+      </article>
+    
+      <article class="store-card" data-name="뉴욕김치찌개" data-category="식권" data-distance="349" data-address="서울특별시 강남구 테헤란로4길 6 역삼동, 강남역 센트럴 푸르지오 시티, 지하2층 B206호">
+        <div class="card-top">
+          <div>
+            <div class="store-name">65. 뉴욕김치찌개</div>
+            <div class="store-code">LXN2GZ</div>
+          </div>
+          <div class="distance-badge">349m</div>
+        </div>
+        <div class="card-meta">
+          <span class="pill">식권</span>
+          <span>010-4447-5001</span>
+        </div>
+        <p class="card-address">서울특별시 강남구 테헤란로4길 6 역삼동, 강남역 센트럴 푸르지오 시티, 지하2층 B206호</p>
+        <a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 테헤란로4길 6 역삼동, 강남역 센트럴 푸르지오 시티, 지하2층 B206호" target="_blank" rel="noopener">지도에서 보기</a>
+      </article>
+    
+      <article class="store-card" data-name="(주)우동명가기리야마본진" data-category="식권" data-distance="350" data-address="서울특별시 강남구 강남대로84길 23 역삼동, 한라클래식오피스텔 (B102~107호)">
+        <div class="card-top">
+          <div>
+            <div class="store-name">66. (주)우동명가기리야마본진</div>
+            <div class="store-code">HCSA4B</div>
+          </div>
+          <div class="distance-badge">350m</div>
+        </div>
+        <div class="card-meta">
+          <span class="pill">식권</span>
+          <span>02-567-0068</span>
+        </div>
+        <p class="card-address">서울특별시 강남구 강남대로84길 23 역삼동, 한라클래식오피스텔 (B102~107호)</p>
+        <a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 강남대로84길 23 역삼동, 한라클래식오피스텔 (B102~107호)" target="_blank" rel="noopener">지도에서 보기</a>
+      </article>
+    
+      <article class="store-card" data-name="스타벅스(강남R점)" data-category="카페" data-distance="353" data-address="서울특별시 강남구 역삼동 825 미진프라자 1층 101호">
+        <div class="card-top">
+          <div>
+            <div class="store-name">67. 스타벅스(강남R점)</div>
+            <div class="store-code">SB_3478</div>
+          </div>
+          <div class="distance-badge">353m</div>
+        </div>
+        <div class="card-meta">
+          <span class="pill">카페</span>
+          <span>1522-3232</span>
+        </div>
+        <p class="card-address">서울특별시 강남구 역삼동 825 미진프라자 1층 101호</p>
+        <a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 역삼동 825 미진프라자 1층 101호" target="_blank" rel="noopener">지도에서 보기</a>
+      </article>
+    
+      <article class="store-card" data-name="돌깨마을맷돌순두부(강남역점)" data-category="식권" data-distance="361" data-address="서울특별시 강남구 테헤란로4길 6 역삼동, 강남역 센트럴 푸르지오 시티 B227호,B228호">
+        <div class="card-top">
+          <div>
+            <div class="store-name">68. 돌깨마을맷돌순두부(강남역점)</div>
+            <div class="store-code">ZZ39SM</div>
+          </div>
+          <div class="distance-badge">361m</div>
+        </div>
+        <div class="card-meta">
+          <span class="pill">식권</span>
+          <span>02-558-3356</span>
+        </div>
+        <p class="card-address">서울특별시 강남구 테헤란로4길 6 역삼동, 강남역 센트럴 푸르지오 시티 B227호,B228호</p>
+        <a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 테헤란로4길 6 역삼동, 강남역 센트럴 푸르지오 시티 B227호,B228호" target="_blank" rel="noopener">지도에서 보기</a>
+      </article>
+    
+      <article class="store-card" data-name="싸다김밥(강남역점)" data-category="제과/패스트푸드/분식" data-distance="361" data-address="서울특별시 강남구 테헤란로4길 6 (역삼동) 지상1층 120호">
+        <div class="card-top">
+          <div>
+            <div class="store-name">69. 싸다김밥(강남역점)</div>
+            <div class="store-code">T8F5D1</div>
+          </div>
+          <div class="distance-badge">361m</div>
+        </div>
+        <div class="card-meta">
+          <span class="pill">제과/패스트푸드/분식</span>
+          <span>02-553-1503</span>
+        </div>
+        <p class="card-address">서울특별시 강남구 테헤란로4길 6 (역삼동) 지상1층 120호</p>
+        <a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 테헤란로4길 6 (역삼동) 지상1층 120호" target="_blank" rel="noopener">지도에서 보기</a>
+      </article>
+    
+      <article class="store-card" data-name="오트보트 주식회사" data-category="음식점" data-distance="361" data-address="서울특별시 강남구 테헤란로4길 6 (역삼동) 제지1층 B119호">
+        <div class="card-top">
+          <div>
+            <div class="store-name">70. 오트보트 주식회사</div>
+            <div class="store-code">DQ048A</div>
+          </div>
+          <div class="distance-badge">361m</div>
+        </div>
+        <div class="card-meta">
+          <span class="pill">음식점</span>
+          <span>010-3321-0242</span>
+        </div>
+        <p class="card-address">서울특별시 강남구 테헤란로4길 6 (역삼동) 제지1층 B119호</p>
+        <a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 테헤란로4길 6 (역삼동) 제지1층 B119호" target="_blank" rel="noopener">지도에서 보기</a>
+      </article>
+    
+      <article class="store-card" data-name="야기카레" data-category="식권" data-distance="362" data-address="서울특별시 강남구 테헤란로4길 6 역삼동, 강남역 센트럴 푸르지오 시티 지하2층 b207호">
+        <div class="card-top">
+          <div>
+            <div class="store-name">71. 야기카레</div>
+            <div class="store-code">KME21X</div>
+          </div>
+          <div class="distance-badge">362m</div>
+        </div>
+        <div class="card-meta">
+          <span class="pill">식권</span>
+          <span>02-565-2446</span>
+        </div>
+        <p class="card-address">서울특별시 강남구 테헤란로4길 6 역삼동, 강남역 센트럴 푸르지오 시티 지하2층 b207호</p>
+        <a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 테헤란로4길 6 역삼동, 강남역 센트럴 푸르지오 시티 지하2층 b207호" target="_blank" rel="noopener">지도에서 보기</a>
+      </article>
+    
+      <article class="store-card" data-name="153구포국수(강남역점)" data-category="음식점" data-distance="363" data-address="서울특별시 강남구 테헤란로4길 6 (역삼동) B102,B103,B104호">
+        <div class="card-top">
+          <div>
+            <div class="store-name">72. 153구포국수(강남역점)</div>
+            <div class="store-code">0BTGCE</div>
+          </div>
+          <div class="distance-badge">363m</div>
+        </div>
+        <div class="card-meta">
+          <span class="pill">음식점</span>
+          <span>02-556-6677</span>
+        </div>
+        <p class="card-address">서울특별시 강남구 테헤란로4길 6 (역삼동) B102,B103,B104호</p>
+        <a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 테헤란로4길 6 (역삼동) B102,B103,B104호" target="_blank" rel="noopener">지도에서 보기</a>
+      </article>
+    
+      <article class="store-card" data-name="스타벅스(강남우성점)" data-category="카페" data-distance="365" data-address="서울특별시 강남구 역삼동 832-3 강남역 쉐르빌">
+        <div class="card-top">
+          <div>
+            <div class="store-name">73. 스타벅스(강남우성점)</div>
+            <div class="store-code">SB_3346</div>
+          </div>
+          <div class="distance-badge">365m</div>
+        </div>
+        <div class="card-meta">
+          <span class="pill">카페</span>
+          <span>1522-3232</span>
+        </div>
+        <p class="card-address">서울특별시 강남구 역삼동 832-3 강남역 쉐르빌</p>
+        <a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 역삼동 832-3 강남역 쉐르빌" target="_blank" rel="noopener">지도에서 보기</a>
+      </article>
+    
+      <article class="store-card" data-name="파리바게뜨(신분당선강남역점)" data-category="제과/패스트푸드/분식" data-distance="365" data-address="서울특별시 강남구 강남대로 396 강남역">
+        <div class="card-top">
+          <div>
+            <div class="store-name">74. 파리바게뜨(신분당선강남역점)</div>
+            <div class="store-code">PARIS_22593</div>
+          </div>
+          <div class="distance-badge">365m</div>
+        </div>
+        <div class="card-meta">
+          <span class="pill">제과/패스트푸드/분식</span>
+          <span>02-565-5266</span>
+        </div>
+        <p class="card-address">서울특별시 강남구 강남대로 396 강남역</p>
+        <a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 강남대로 396 강남역" target="_blank" rel="noopener">지도에서 보기</a>
+      </article>
+    
+      <article class="store-card" data-name="써브웨이(강남GT타워점)" data-category="제과/패스트푸드/분식" data-distance="373" data-address="서울특별시 서초구 서초대로 411 (서초동) 동관 1층 1호,2호,3호">
+        <div class="card-top">
+          <div>
+            <div class="store-name">75. 써브웨이(강남GT타워점)</div>
+            <div class="store-code">353C7L</div>
+          </div>
+          <div class="distance-badge">373m</div>
+        </div>
+        <div class="card-meta">
+          <span class="pill">제과/패스트푸드/분식</span>
+          <span>02-3478-1014</span>
+        </div>
+        <p class="card-address">서울특별시 서초구 서초대로 411 (서초동) 동관 1층 1호,2호,3호</p>
+        <a class="map-link" href="https://map.naver.com/p/search/서울특별시 서초구 서초대로 411 (서초동) 동관 1층 1호,2호,3호" target="_blank" rel="noopener">지도에서 보기</a>
+      </article>
+    
+      <article class="store-card" data-name="소노야(강남역점)" data-category="식권" data-distance="383" data-address="서울특별시 강남구 강남대로 396, 강남역 지하1층28호(역삼동)">
+        <div class="card-top">
+          <div>
+            <div class="store-name">76. 소노야(강남역점)</div>
+            <div class="store-code">EJDGJZ</div>
+          </div>
+          <div class="distance-badge">383m</div>
+        </div>
+        <div class="card-meta">
+          <span class="pill">식권</span>
+          <span>02-568-0014</span>
+        </div>
+        <p class="card-address">서울특별시 강남구 강남대로 396, 강남역 지하1층28호(역삼동)</p>
+        <a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 강남대로 396, 강남역 지하1층28호(역삼동)" target="_blank" rel="noopener">지도에서 보기</a>
+      </article>
+    
+      <article class="store-card" data-name="컴포즈커피(강남역사점)" data-category="카페" data-distance="383" data-address="서울특별시 강남구 테헤란로 101 컴포즈커피(강남역사점)">
+        <div class="card-top">
+          <div>
+            <div class="store-name">77. 컴포즈커피(강남역사점)</div>
+            <div class="store-code">JJT6VF</div>
+          </div>
+          <div class="distance-badge">383m</div>
+        </div>
+        <div class="card-meta">
+          <span class="pill">카페</span>
+          <span>1899-5685</span>
+        </div>
+        <p class="card-address">서울특별시 강남구 테헤란로 101 컴포즈커피(강남역사점)</p>
+        <a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 테헤란로 101 컴포즈커피(강남역사점)" target="_blank" rel="noopener">지도에서 보기</a>
+      </article>
+    
+      <article class="store-card" data-name="크리스피크림도넛(강남역 지하쇼핑센터점)" data-category="제과/패스트푸드/분식" data-distance="383" data-address="서울특별시 강남구 강남대로 지하 396">
+        <div class="card-top">
+          <div>
+            <div class="store-name">78. 크리스피크림도넛(강남역 지하쇼핑센터점)</div>
+            <div class="store-code">1L3X9P</div>
+          </div>
+          <div class="distance-badge">383m</div>
+        </div>
+        <div class="card-meta">
+          <span class="pill">제과/패스트푸드/분식</span>
+          <span>02-567-9718</span>
+        </div>
+        <p class="card-address">서울특별시 강남구 강남대로 지하 396</p>
+        <a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 강남대로 지하 396" target="_blank" rel="noopener">지도에서 보기</a>
+      </article>
+    
+      <article class="store-card" data-name="맘스터치(강남대성학원점)" data-category="제과/패스트푸드/분식" data-distance="384" data-address="서울특별시 강남구 강남대로78길 33 (역삼동) 맘스터치(강남대성학원점)">
+        <div class="card-top">
+          <div>
+            <div class="store-name">79. 맘스터치(강남대성학원점)</div>
+            <div class="store-code">1VH559</div>
+          </div>
+          <div class="distance-badge">384m</div>
+        </div>
+        <div class="card-meta">
+          <span class="pill">제과/패스트푸드/분식</span>
+          <span>025661318</span>
+        </div>
+        <p class="card-address">서울특별시 강남구 강남대로78길 33 (역삼동) 맘스터치(강남대성학원점)</p>
+        <a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 강남대로78길 33 (역삼동) 맘스터치(강남대성학원점)" target="_blank" rel="noopener">지도에서 보기</a>
+      </article>
+    
+      <article class="store-card" data-name="토담골맛집" data-category="음식점" data-distance="387" data-address="서울특별시 강남구 테헤란로4길 13 (역삼동) 1층">
+        <div class="card-top">
+          <div>
+            <div class="store-name">80. 토담골맛집</div>
+            <div class="store-code">97WRPB</div>
+          </div>
+          <div class="distance-badge">387m</div>
+        </div>
+        <div class="card-meta">
+          <span class="pill">음식점</span>
+          <span>02-552-3360</span>
+        </div>
+        <p class="card-address">서울특별시 강남구 테헤란로4길 13 (역삼동) 1층</p>
+        <a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 테헤란로4길 13 (역삼동) 1층" target="_blank" rel="noopener">지도에서 보기</a>
+      </article>
+    
+      <article class="store-card" data-name="스타벅스(몬테소리점)" data-category="카페" data-distance="405" data-address="서울특별시 서초구 서초동 1318-8">
+        <div class="card-top">
+          <div>
+            <div class="store-name">81. 스타벅스(몬테소리점)</div>
+            <div class="store-code">SB_9425</div>
+          </div>
+          <div class="distance-badge">405m</div>
+        </div>
+        <div class="card-meta">
+          <span class="pill">카페</span>
+          <span>1522-3232</span>
+        </div>
+        <p class="card-address">서울특별시 서초구 서초동 1318-8</p>
+        <a class="map-link" href="https://map.naver.com/p/search/서울특별시 서초구 서초동 1318-8" target="_blank" rel="noopener">지도에서 보기</a>
+      </article>
+    
+      <article class="store-card" data-name="에그드랍(강남우성점)" data-category="제과/패스트푸드/분식" data-distance="407" data-address="서울특별시 서초구 강남대로 321 1층 104호 (서초동)">
+        <div class="card-top">
+          <div>
+            <div class="store-name">82. 에그드랍(강남우성점)</div>
+            <div class="store-code">0MYIKC</div>
+          </div>
+          <div class="distance-badge">407m</div>
+        </div>
+        <div class="card-meta">
+          <span class="pill">제과/패스트푸드/분식</span>
+          <span>1670-4809</span>
+        </div>
+        <p class="card-address">서울특별시 서초구 강남대로 321 1층 104호 (서초동)</p>
+        <a class="map-link" href="https://map.naver.com/p/search/서울특별시 서초구 강남대로 321 1층 104호 (서초동)" target="_blank" rel="noopener">지도에서 보기</a>
+      </article>
+    
+      <article class="store-card" data-name="연희동칼국수(강남역점)" data-category="식권" data-distance="410" data-address="서울특별시 서초구 서초대로 411 서초동, GT TOWER, B1-3호">
+        <div class="card-top">
+          <div>
+            <div class="store-name">83. 연희동칼국수(강남역점)</div>
+            <div class="store-code">SKWXJ5</div>
+          </div>
+          <div class="distance-badge">410m</div>
+        </div>
+        <div class="card-meta">
+          <span class="pill">식권</span>
+          <span>02-590-2455</span>
+        </div>
+        <p class="card-address">서울특별시 서초구 서초대로 411 서초동, GT TOWER, B1-3호</p>
+        <a class="map-link" href="https://map.naver.com/p/search/서울특별시 서초구 서초대로 411 서초동, GT TOWER, B1-3호" target="_blank" rel="noopener">지도에서 보기</a>
+      </article>
+    
+      <article class="store-card" data-name="나주가" data-category="식권" data-distance="421" data-address="서울특별시 강남구 강남대로84길 36 역삼동">
+        <div class="card-top">
+          <div>
+            <div class="store-name">84. 나주가</div>
+            <div class="store-code">3HLP3T</div>
+          </div>
+          <div class="distance-badge">421m</div>
+        </div>
+        <div class="card-meta">
+          <span class="pill">식권</span>
+          <span>02-567-9288</span>
+        </div>
+        <p class="card-address">서울특별시 강남구 강남대로84길 36 역삼동</p>
+        <a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 강남대로84길 36 역삼동" target="_blank" rel="noopener">지도에서 보기</a>
+      </article>
+    
+      <article class="store-card" data-name="공차(강남역점)" data-category="카페" data-distance="435" data-address="서울특별시 강남구 역삼동 821">
+        <div class="card-top">
+          <div>
+            <div class="store-name">85. 공차(강남역점)</div>
+            <div class="store-code">HH6Y2N</div>
+          </div>
+          <div class="distance-badge">435m</div>
+        </div>
+        <div class="card-meta">
+          <span class="pill">카페</span>
+          <span>02-569-7344</span>
+        </div>
+        <p class="card-address">서울특별시 강남구 역삼동 821</p>
+        <a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 역삼동 821" target="_blank" rel="noopener">지도에서 보기</a>
+      </article>
+    
+      <article class="store-card" data-name="국밥쟁이(강남역점)" data-category="식권" data-distance="439" data-address="서울특별시 서초구 서초대로77길 9 서초동, 강남 누드죤빌딩 지하1층">
+        <div class="card-top">
+          <div>
+            <div class="store-name">86. 국밥쟁이(강남역점)</div>
+            <div class="store-code">C8WT3X</div>
+          </div>
+          <div class="distance-badge">439m</div>
+        </div>
+        <div class="card-meta">
+          <span class="pill">식권</span>
+          <span>02-533-9290</span>
+        </div>
+        <p class="card-address">서울특별시 서초구 서초대로77길 9 서초동, 강남 누드죤빌딩 지하1층</p>
+        <a class="map-link" href="https://map.naver.com/p/search/서울특별시 서초구 서초대로77길 9 서초동, 강남 누드죤빌딩 지하1층" target="_blank" rel="noopener">지도에서 보기</a>
+      </article>
+    
+      <article class="store-card" data-name="맥도날드(강남2호점)" data-category="제과/패스트푸드/분식" data-distance="451" data-address="서울특별시 강남구 테헤란로 107 (역삼동) 맥도날드(강남2호)">
+        <div class="card-top">
+          <div>
+            <div class="store-name">87. 맥도날드(강남2호점)</div>
+            <div class="store-code">B62YVV</div>
+          </div>
+          <div class="distance-badge">451m</div>
+        </div>
+        <div class="card-meta">
+          <span class="pill">제과/패스트푸드/분식</span>
+          <span>02-6205-6400</span>
+        </div>
+        <p class="card-address">서울특별시 강남구 테헤란로 107 (역삼동) 맥도날드(강남2호)</p>
+        <a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 테헤란로 107 (역삼동) 맥도날드(강남2호)" target="_blank" rel="noopener">지도에서 보기</a>
+      </article>
+    
+      <article class="store-card" data-name="낙원타코(강남역점)" data-category="식권" data-distance="456" data-address="서울특별시 서초구 서초대로73길 9 2층 (서초동, 타임빌딩)">
+        <div class="card-top">
+          <div>
+            <div class="store-name">88. 낙원타코(강남역점)</div>
+            <div class="store-code">XKGHR0</div>
+          </div>
+          <div class="distance-badge">456m</div>
+        </div>
+        <div class="card-meta">
+          <span class="pill">식권</span>
+          <span>0222941540</span>
+        </div>
+        <p class="card-address">서울특별시 서초구 서초대로73길 9 2층 (서초동, 타임빌딩)</p>
+        <a class="map-link" href="https://map.naver.com/p/search/서울특별시 서초구 서초대로73길 9 2층 (서초동, 타임빌딩)" target="_blank" rel="noopener">지도에서 보기</a>
+      </article>
+    
+      <article class="store-card" data-name="버거킹(강남대로점)" data-category="제과/패스트푸드/분식" data-distance="466" data-address="서울특별시 강남구 강남대로 406">
+        <div class="card-top">
+          <div>
+            <div class="store-name">89. 버거킹(강남대로점)</div>
+            <div class="store-code">BKR_00000187</div>
+          </div>
+          <div class="distance-badge">466m</div>
+        </div>
+        <div class="card-meta">
+          <span class="pill">제과/패스트푸드/분식</span>
+          <span>02-566-0332</span>
+        </div>
+        <p class="card-address">서울특별시 강남구 강남대로 406</p>
+        <a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 강남대로 406" target="_blank" rel="noopener">지도에서 보기</a>
+      </article>
+    
+      <article class="store-card" data-name="공차(강남글라스점)" data-category="카페" data-distance="471" data-address="서울특별시 강남구 강남대로 406 GLASS TOWER">
+        <div class="card-top">
+          <div>
+            <div class="store-name">90. 공차(강남글라스점)</div>
+            <div class="store-code">4APZAY</div>
+          </div>
+          <div class="distance-badge">471m</div>
+        </div>
+        <div class="card-meta">
+          <span class="pill">카페</span>
+          <span>02-3453-7758</span>
+        </div>
+        <p class="card-address">서울특별시 강남구 강남대로 406 GLASS TOWER</p>
+        <a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 강남대로 406 GLASS TOWER" target="_blank" rel="noopener">지도에서 보기</a>
+      </article>
+    
+      <article class="store-card" data-name="써브웨이(강남우성점)" data-category="제과/패스트푸드/분식" data-distance="472" data-address="서울특별시 강남구 강남대로66길 6">
+        <div class="card-top">
+          <div>
+            <div class="store-name">91. 써브웨이(강남우성점)</div>
+            <div class="store-code">1O7ASZ</div>
+          </div>
+          <div class="distance-badge">472m</div>
+        </div>
+        <div class="card-meta">
+          <span class="pill">제과/패스트푸드/분식</span>
+          <span>02-553-5232</span>
+        </div>
+        <p class="card-address">서울특별시 강남구 강남대로66길 6</p>
+        <a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 강남대로66길 6" target="_blank" rel="noopener">지도에서 보기</a>
+      </article>
+    
+      <article class="store-card" data-name="포몬스(역삼점)" data-category="식권" data-distance="485" data-address="서울특별시 강남구 역삼로7길 8 역삼동, 1층">
+        <div class="card-top">
+          <div>
+            <div class="store-name">92. 포몬스(역삼점)</div>
+            <div class="store-code">1XKB2L</div>
+          </div>
+          <div class="distance-badge">485m</div>
+        </div>
+        <div class="card-meta">
+          <span class="pill">식권</span>
+          <span>02-3453-6070</span>
+        </div>
+        <p class="card-address">서울특별시 강남구 역삼로7길 8 역삼동, 1층</p>
+        <a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 역삼로7길 8 역삼동, 1층" target="_blank" rel="noopener">지도에서 보기</a>
+      </article>
+    
+      <article class="store-card" data-name="롯데리아(역삼점)" data-category="제과/패스트푸드/분식" data-distance="486" data-address="서울특별시 강남구 테헤란로 116 동경빌딩">
+        <div class="card-top">
+          <div>
+            <div class="store-name">93. 롯데리아(역삼점)</div>
+            <div class="store-code">WSXYOP</div>
+          </div>
+          <div class="distance-badge">486m</div>
+        </div>
+        <div class="card-meta">
+          <span class="pill">제과/패스트푸드/분식</span>
+          <span>02-3453-4054</span>
+        </div>
+        <p class="card-address">서울특별시 강남구 테헤란로 116 동경빌딩</p>
+        <a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 테헤란로 116 동경빌딩" target="_blank" rel="noopener">지도에서 보기</a>
+      </article>
+    
+      <article class="store-card" data-name="since1982 전주식당" data-category="식권" data-distance="488" data-address="서울특별시 서초구 효령로77길 18 서초동, 신명스카이뷰멤버스, 1층 102호">
+        <div class="card-top">
+          <div>
+            <div class="store-name">94. since1982 전주식당</div>
+            <div class="store-code">F61EDB</div>
+          </div>
+          <div class="distance-badge">488m</div>
+        </div>
+        <div class="card-meta">
+          <span class="pill">식권</span>
+          <span>02-3473-7017</span>
+        </div>
+        <p class="card-address">서울특별시 서초구 효령로77길 18 서초동, 신명스카이뷰멤버스, 1층 102호</p>
+        <a class="map-link" href="https://map.naver.com/p/search/서울특별시 서초구 효령로77길 18 서초동, 신명스카이뷰멤버스, 1층 102호" target="_blank" rel="noopener">지도에서 보기</a>
+      </article>
+    
+      <article class="store-card" data-name="KFC(강남역점)" data-category="제과/패스트푸드/분식" data-distance="490" data-address="서울특별시 서초구 서초대로77길 15 KFC강남역점">
+        <div class="card-top">
+          <div>
+            <div class="store-name">95. KFC(강남역점)</div>
+            <div class="store-code">J9GWRG</div>
+          </div>
+          <div class="distance-badge">490m</div>
+        </div>
+        <div class="card-meta">
+          <span class="pill">제과/패스트푸드/분식</span>
+          <span>02-532-4211</span>
+        </div>
+        <p class="card-address">서울특별시 서초구 서초대로77길 15 KFC강남역점</p>
+        <a class="map-link" href="https://map.naver.com/p/search/서울특별시 서초구 서초대로77길 15 KFC강남역점" target="_blank" rel="noopener">지도에서 보기</a>
+      </article>
+    
+      <article class="store-card" data-name="뚜레쥬르(카페역삼점)" data-category="제과/패스트푸드/분식" data-distance="493" data-address="서울특별시 강남구 테헤란로8길 21 (역삼동) 강남화인빌딩 1층">
+        <div class="card-top">
+          <div>
+            <div class="store-name">96. 뚜레쥬르(카페역삼점)</div>
+            <div class="store-code">QMWWAS</div>
+          </div>
+          <div class="distance-badge">493m</div>
+        </div>
+        <div class="card-meta">
+          <span class="pill">제과/패스트푸드/분식</span>
+          <span>1577-0700</span>
+        </div>
+        <p class="card-address">서울특별시 강남구 테헤란로8길 21 (역삼동) 강남화인빌딩 1층</p>
+        <a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 테헤란로8길 21 (역삼동) 강남화인빌딩 1층" target="_blank" rel="noopener">지도에서 보기</a>
+      </article>
+    
+      <article class="store-card" data-name="[자판기] 현대자동차 에어랩연구소" data-category="기타" data-distance="496" data-address="서울특별시 강남구 강남대로94길 10 강남K스퀘어 6층">
+        <div class="card-top">
+          <div>
+            <div class="store-name">97. [자판기] 현대자동차 에어랩연구소</div>
+            <div class="store-code">OKBGTD</div>
+          </div>
+          <div class="distance-badge">496m</div>
+        </div>
+        <div class="card-meta">
+          <span class="pill">기타</span>
+          <span>02-3453-9622</span>
+        </div>
+        <p class="card-address">서울특별시 강남구 강남대로94길 10 강남K스퀘어 6층</p>
+        <a class="map-link" href="https://map.naver.com/p/search/서울특별시 강남구 강남대로94길 10 강남K스퀘어 6층" target="_blank" rel="noopener">지도에서 보기</a>
+      </article>
+    
+      </div>
+    </section>
+
+    <p class="footer">이 문서는 제공된 PAYCO Biz+ 조회 응답 데이터를 보기 좋게 정리한 오프라인 HTML 파일입니다.</p>
+  </main>
+
+  <script>
+    const filters = document.querySelectorAll('.filter');
+    const search = document.getElementById('search');
+    const distanceFilter = document.getElementById('distanceFilter');
+    const sortSelect = document.getElementById('sortSelect');
+    const tbody = document.querySelector('#storeTable tbody');
+    const cardList = document.getElementById('cardList');
+    const visibleCount = document.getElementById('visibleCount');
+    let activeCategory = '전체';
+
+    function normalize(s) {
+      return (s || '').toString().toLowerCase().replace(/\s+/g, '');
+    }
+
+    function sortElements(container, selector) {
+      const mode = sortSelect.value;
+      const elements = Array.from(container.querySelectorAll(selector));
+      elements.sort((a, b) => {
+        if (mode === 'distanceAsc') {
+          return Number(a.dataset.distance) - Number(b.dataset.distance);
+        }
+        if (mode === 'nameAsc') {
+          return a.dataset.name.localeCompare(b.dataset.name, 'ko');
+        }
+        return a.dataset.category.localeCompare(b.dataset.category, 'ko') || Number(a.dataset.distance) - Number(b.dataset.distance);
+      });
+      elements.forEach(el => container.appendChild(el));
+    }
+
+    function applyFilters() {
+      const q = normalize(search.value);
+      const maxDistance = Number(distanceFilter.value);
+      let count = 0;
+
+      const apply = (el) => {
+        const categoryOk = activeCategory === '전체' || el.dataset.category === activeCategory;
+        const distanceOk = Number(el.dataset.distance) <= maxDistance;
+        const text = normalize([el.dataset.name, el.dataset.address, el.textContent].join(' '));
+        const searchOk = !q || text.includes(q);
+        const visible = categoryOk && distanceOk && searchOk;
+        el.style.display = visible ? '' : 'none';
+        if (visible && el.tagName === 'TR') count++;
+      };
+
+      sortElements(tbody, 'tr');
+      sortElements(cardList, '.store-card');
+
+      tbody.querySelectorAll('tr').forEach(apply);
+      cardList.querySelectorAll('.store-card').forEach(apply);
+
+      visibleCount.textContent = count;
+    }
+
+    filters.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filters.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        activeCategory = btn.dataset.category;
+        applyFilters();
+      });
+    });
+
+    search.addEventListener('input', applyFilters);
+    distanceFilter.addEventListener('change', applyFilters);
+    sortSelect.addEventListener('change', applyFilters);
+    applyFilters();
+  </script>
+</body>
+</html>
