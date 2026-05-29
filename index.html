@@ -279,6 +279,48 @@
       .dashboard { grid-template-columns: 1fr; }
       .section { padding: 16px; }
     }
+
+    .back-to-top {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 50;
+      width: 52px;
+      height: 52px;
+      border: 0;
+      border-radius: 999px;
+      background: var(--accent);
+      color: white;
+      font-size: 22px;
+      font-weight: 900;
+      box-shadow: 0 12px 28px rgba(229, 37, 40, 0.28);
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+      transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease, background 0.2s ease;
+    }
+    .back-to-top.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    .back-to-top:hover {
+      background: var(--accent-dark);
+    }
+    .back-to-top:focus {
+      outline: 3px solid rgba(229, 37, 40, 0.22);
+      outline-offset: 3px;
+    }
+    @media (max-width: 520px) {
+      .back-to-top {
+        right: 16px;
+        bottom: 16px;
+        width: 48px;
+        height: 48px;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -3201,6 +3243,9 @@
     <p class="footer">이 문서는 제공된 PAYCO Biz+ 조회 응답 데이터를 보기 좋게 정리한 오프라인 HTML 파일입니다.</p>
   </main>
 
+
+  <button class="back-to-top" id="backToTop" type="button" aria-label="맨 위로 이동" title="맨 위로">↑</button>
+
   <script>
     const filters = document.querySelectorAll('.filter');
     const search = document.getElementById('search');
@@ -3209,6 +3254,24 @@
     const tbody = document.querySelector('#storeTable tbody');
     const cardList = document.getElementById('cardList');
     const visibleCount = document.getElementById('visibleCount');
+
+    const backToTop = document.getElementById('backToTop');
+
+    function toggleBackToTop() {
+      if (window.scrollY > 280) {
+        backToTop.classList.add('show');
+      } else {
+        backToTop.classList.remove('show');
+      }
+    }
+
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    window.addEventListener('scroll', toggleBackToTop);
+    toggleBackToTop();
+
     let activeCategory = '전체';
 
     function normalize(s) {
